@@ -35,6 +35,37 @@
             font-size:1.2rem;
         }
 
+nav{
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    padding:10px 0;
+}
+
+nav a{
+    text-decoration:none;
+    color:var(--blau);
+    font-weight:600;
+    padding:8px 14px;
+    border-radius:10px;
+    transition:0.3s;
+    background:rgba(255,255,255,0.6);
+    backdrop-filter: blur(6px);
+}
+
+nav a:hover{
+    background:var(--blau);
+    color:white;
+    transform:translateY(-2px);
+}
+
+/* Sticky Navigation Effekt */
+header{
+    position:relative;
+}
+        
         .hero{
             width:90%;
             max-width:1400px;
@@ -110,7 +141,14 @@
     <!-- Hier später eigenes Panoramafoto einfügen -->
     <img src="images/bgy01.png" alt="Panorama view of the blue-green yard">
 </div>
-
+<nav>
+    <a href="index.html">Background</a>
+    <a href="technical.html">Technical Concept</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="ai.html">AI</a>
+    <a href="results.html">Results and Reports</a>
+    <a href="contact.html">Contact</a>
+</nav>
 
 <div class="container">
 
