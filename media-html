@@ -1,0 +1,45 @@
+<div class="section">
+
+    <h2>Media</h2>
+
+    <p>
+        Impressions of the Blue Green Yard demonstrator including the
+        rainwater harvesting system, treatment unit, sensor network and
+        AI-supported operation.
+    </p>
+
+    <div class="gallery">
+
+        <figure>
+            <img src="images/gallery01.jpg" alt="Blue Green Yard Overview">
+            <figcaption>Blue Green Yard overview and courtyard integration.</figcaption>
+        </figure>
+
+        <figure>
+            <img src="images/gallery02.jpg" alt="Cistern Installation">
+            <figcaption>Installation of the interconnected cistern system.</figcaption>
+        </figure>
+
+        <figure>
+            <img src="images/gallery03.jpg" alt="Water Treatment Unit">
+            <figcaption>Rainwater treatment and reuse unit.</figcaption>
+        </figure>
+
+        <figure>
+            <img src="images/gallery04.jpg" alt="Sensor Infrastructure">
+            <figcaption>Sensor infrastructure for monitoring and control.</figcaption>
+        </figure>
+
+        <figure>
+            <img src="images/gallery05.jpg" alt="AI Dashboard">
+            <figcaption>AI-based monitoring and decision support dashboard.</figcaption>
+        </figure>
+
+        <figure>
+            <img src="images/gallery06.jpg" alt="Completed Demonstrator">
+            <figcaption>Completed demonstrator and operational testing phase.</figcaption>
+        </figure>
+
+    </div>
+
+</div>
