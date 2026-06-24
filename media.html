@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,29 +28,21 @@ html{
 
 body{
     font-family:Arial, Helvetica, sans-serif;
-    background:linear-gradient(
-        135deg,
-        #0a2540 0%,
-        #0e7490 45%,
-        #10b981 100%
-    );
+    background:linear-gradient(135deg,#0a2540,#0e7490,#10b981);
     color:var(--text);
     line-height:1.7;
-    min-height:100vh;
 }
 
 /* ---------- HEADER ---------- */
 
 header{
     text-align:center;
-    padding:80px 20px 50px;
-    position:relative;
+    padding:80px 20px 30px;
 }
 
 header h1{
     font-size:3rem;
     margin-bottom:15px;
-    font-weight:700;
 }
 
 header p{
@@ -61,7 +55,7 @@ header p{
 /* ---------- NAVIGATION ---------- */
 
 nav{
-    margin-top:35px;
+    margin-top:25px;
     display:flex;
     justify-content:center;
     gap:15px;
@@ -74,19 +68,18 @@ nav a{
     font-weight:600;
     padding:10px 18px;
     border-radius:12px;
-    transition:all 0.3s ease;
     background:rgba(255,255,255,0.12);
     backdrop-filter:blur(10px);
     border:1px solid rgba(255,255,255,0.15);
+    transition:0.3s;
 }
 
 nav a:hover{
     background:rgba(255,255,255,0.28);
     transform:translateY(-3px);
-    box-shadow:0 8px 25px rgba(0,0,0,0.2);
 }
 
-/* ---------- HERO IMAGE ---------- */
+/* ---------- HERO ---------- */
 
 .hero{
     width:90%;
@@ -104,13 +97,15 @@ nav a:hover{
     object-fit:cover;
 }
 
-/* ---------- CONTENT ---------- */
+/* ---------- CONTAINER ---------- */
 
 .container{
     width:90%;
     max-width:1200px;
     margin:auto;
 }
+
+/* ---------- SECTIONS ---------- */
 
 .section{
     background:var(--glass);
@@ -119,13 +114,12 @@ nav a:hover{
     padding:40px;
     margin-bottom:30px;
     border-radius:24px;
-    box-shadow:0 10px 35px rgba(0,0,0,0.15);
 }
 
 h2{
     color:var(--primary);
     margin-bottom:20px;
-    font-size:2rem;
+    font-size:1.9rem;
 }
 
 /* ---------- CARDS ---------- */
@@ -142,52 +136,48 @@ h2{
     border:1px solid rgba(255,255,255,0.12);
     padding:30px;
     border-radius:20px;
-    transition:all 0.3s ease;
+    transition:0.3s;
 }
 
 .card:hover{
     transform:translateY(-8px);
     background:var(--glass-strong);
-    box-shadow:0 12px 30px rgba(0,0,0,0.2);
 }
 
 .card h3{
     color:var(--primary);
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 
-/* ---------- IMAGE GALLERY ---------- */
+/* ---------- GALLERY ---------- */
 
 .gallery{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
     gap:25px;
-    margin-top:30px;
+    margin-top:25px;
 }
 
 .gallery figure{
     background:var(--glass);
     border-radius:20px;
     overflow:hidden;
-    backdrop-filter:blur(10px);
     border:1px solid rgba(255,255,255,0.12);
-    transition:all 0.3s ease;
+    transition:0.3s;
 }
 
 .gallery figure:hover{
     transform:translateY(-8px);
-    box-shadow:0 12px 30px rgba(0,0,0,0.25);
 }
 
 .gallery img{
     width:100%;
-    height:260px;
+    height:240px;
     object-fit:cover;
-    display:block;
 }
 
 .gallery figcaption{
-    padding:18px;
+    padding:16px;
     text-align:center;
     color:#dbeafe;
     font-size:0.95rem;
@@ -199,34 +189,150 @@ footer{
     text-align:center;
     padding:50px;
     color:#cbd5e1;
-    font-size:0.95rem;
-}
-
-/* ---------- MOBILE ---------- */
-
-@media(max-width:768px){
-
-    header h1{
-        font-size:2.2rem;
-    }
-
-    header p{
-        font-size:1rem;
-    }
-
-    .hero{
-        height:320px;
-    }
-
-    .section{
-        padding:25px;
-    }
-
-    h2{
-        font-size:1.6rem;
-    }
-
 }
 
 </style>
 </head>
+
+<body>
+
+<header>
+    <h1>Blue Green Yard @ LUH</h1>
+
+    <p>
+        AI-based rainwater harvesting system combining four interconnected cisterns,
+        advanced treatment technology and smart environmental monitoring for
+        climate-resilient urban infrastructure.
+    </p>
+
+    <nav>
+        <a href="#background">Background</a>
+        <a href="#technical">Technical Concept</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#ai">AI</a>
+        <a href="#results">Results</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO IMAGE -->
+<div class="hero">
+    <img src="images/hero_placeholder.jpg" alt="Blue Green Yard Overview">
+</div>
+
+<div class="container">
+
+<!-- BACKGROUND -->
+<section id="background" class="section">
+    <h2>Background</h2>
+    <p>
+        The Blue Green Yard demonstrates modern blue-green infrastructure
+        combining water storage, reuse and intelligent system control in
+        an urban courtyard environment.
+    </p>
+</section>
+
+<!-- TECHNICAL -->
+<section id="technical" class="section">
+    <h2>Technical Concept</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Rainwater Collection</h3>
+            <p>Collection of precipitation from roof and courtyard surfaces.</p>
+        </div>
+
+        <div class="card">
+            <h3>4 Cistern System</h3>
+            <p>Networked storage units for flexible water distribution.</p>
+        </div>
+
+        <div class="card">
+            <h3>Treatment Unit</h3>
+            <p>Filtration and purification for reuse applications.</p>
+        </div>
+
+        <div class="card">
+            <h3>Sensor Network</h3>
+            <p>Real-time monitoring of water levels and quality.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- GALLERY -->
+<section id="dashboard" class="section">
+    <h2>Dashboard & System Views</h2>
+
+    <div class="gallery">
+
+        <figure>
+            <img src="images/img1.jpg">
+            <figcaption>System overview dashboard</figcaption>
+        </figure>
+
+        <figure>
+            <img src="images/img2.jpg">
+            <figcaption>Cistern monitoring interface</figcaption>
+        </figure>
+
+        <figure>
+            <img src="images/img3.jpg">
+            <figcaption>Water flow analytics</figcaption>
+        </figure>
+
+    </div>
+</section>
+
+<!-- AI -->
+<section id="ai" class="section">
+    <h2>AI System</h2>
+    <p>
+        AI-based control optimizes water distribution, predicts rainfall events
+        and improves system efficiency through adaptive learning models.
+    </p>
+</section>
+
+<!-- RESULTS -->
+<section id="results" class="section">
+    <h2>Results & Reports</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Water Savings</h3>
+            <p>Reduction of potable water usage through reuse.</p>
+        </div>
+
+        <div class="card">
+            <h3>Runoff Reduction</h3>
+            <p>Decreased stormwater discharge into sewer systems.</p>
+        </div>
+
+        <div class="card">
+            <h3>Efficiency Gain</h3>
+            <p>Optimized system operation through AI analytics.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>
+        [YOUR INSTITUTION]<br>
+        [YOUR EMAIL]<br>
+        [YOUR ADDRESS]
+    </p>
+</section>
+
+</div>
+
+<footer>
+    © 2026 Blue Green Yard @ LUH
+</footer>
+
+</body>
+</html>
