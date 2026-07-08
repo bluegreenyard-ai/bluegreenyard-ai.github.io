@@ -1,1 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-based Solutions | Blue Green Yard</title>
 
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    body{
+        font-family:Arial, Helvetica, sans-serif;
+        background:linear-gradient(135deg,#0a2540,#0e7490,#10b981);
+        color:white;
+        line-height:1.7;
+    }
+
+    header{
+        text-align:center;
+        padding:80px 20px;
+        position:relative;
+    }
+
+    header h1{
+        font-size:3rem;
+        margin-bottom:15px;
+    }
+
+    header p{
+        max-width:900px;
+        margin:auto;
+        font-size:1.2rem;
+    }
+
+    nav{
+        margin-top:20px;
+        display:flex;
+        justify-content:center;
+        gap:20px;
+        flex-wrap:wrap;
+        padding:10px 0;
+    }
+
+    nav a{
+        text-decoration:none;
+        color:white;
+        font-weight:600;
+        padding:8px 14px;
+        border-radius:10px;
+        transition:0.3s;
+        background:rgba(255,255,255,0.15);
+        backdrop-filter:blur(6px);
+    }
+
+    nav a:hover{
+        background:white;
+        color:#0a2540;
+        transform:translateY(-2px);
+    }
+
+    .hero{
+        width:90%;
+        max-width:1400px;
+        height:450px;
+        margin:40px auto;
+        border-radius:20px;
+        overflow:hidden;
+        box-shadow:0 10px 40px rgba(0,0,0,.4);
+    }
+
+    .hero img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+    }
+
+    .container{
+        width:90%;
+        max-width:1200px;
+        margin:auto;
+    }
+
+    .section{
+        background:rgba(255,255,255,.08);
+        backdrop-filter:blur(10px);
+        padding:40px;
+        margin-bottom:30px;
+        border-radius:20px;
+    }
+
+    h2{
+        color:#7dd3fc;
+        margin-bottom:20px;
+    }
+
+    .cards{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+        gap:25px;
+    }
+
+    .card{
+        background:rgba(255,255,255,.08);
+        padding:30px;
+        border-radius:20px;
+        transition:.3s;
+    }
+
+    .card:hover{
+        transform:translateY(-8px);
+    }
+
+    footer{
+        text-align:center;
+        padding:50px;
+        color:#cbd5e1;
+    }
+
+    @media(max-width:768px){
+
+        header h1{
+            font-size:2.3rem;
+        }
+
+        .hero{
+            height:280px;
+        }
+
+        .section{
+            padding:25px;
+        }
+
+    }
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>AI-based Solutions</h1>
+
+    <p>
+        Artificial Intelligence for smart rainwater management,
+        predictive operation, digital twins and decision support
+        in climate-resilient blue-green infrastructure.
+    </p>
+
+    <nav>
+        <a href="index.html">Start</a>
+        <a href="technical.html">Technical Concept</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="ai.html">AI</a>
+        <a href="results.html">Results</a>
+        <a href="media.html">Media</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+</header>
+
+<div class="hero">
+    <img src="images/ai.jpg" alt="Artificial Intelligence">
+</div>
+
+<div class="container">
+
+    <div class="section">
+
+        <h2>Artificial Intelligence Framework</h2>
+
+        <p>
+            The Blue Green Yard combines real-time monitoring,
+            environmental sensing and artificial intelligence
+            to optimize rainwater harvesting, storage, treatment
+            and reuse. Machine learning models continuously analyze
+            incoming data streams and support adaptive operation
+            under changing climatic conditions.
+        </p>
+
+    </div>
+
+    <div class="section">
+
+        <h2>AI Applications</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Rainfall Prediction</h3>
+
+                <p>
+                    AI models combine weather forecasts and historical
+                    precipitation data to predict rainfall events and
+                    optimize storage capacity before storms occur.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Smart Control</h3>
+
+                <p>
+                    Intelligent algorithms automatically control pumps,
+                    valves and treatment units to maximize efficiency,
+                    reduce energy demand and improve water availability.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Anomaly Detection</h3>
+
+                <p>
+                    Machine learning identifies sensor failures,
+                    leakages and abnormal operational conditions
+                    before they become critical.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Demand Forecasting</h3>
+
+                <p>
+                    Predictive models estimate future water demand
+                    for irrigation and other reuse applications,
+                    enabling proactive system management.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="section">
+
+        <h2>Digital Twin</h2>
+
+        <p>
+            A continuously updated digital twin mirrors the physical
+            Blue Green Yard. By integrating sensor data, weather forecasts
+            and hydraulic simulations, it enables scenario analysis,
+            operational planning and long-term system optimization.
+        </p>
+
+    </div>
+
+    <div class="section">
+
+        <h2>Machine Learning Modules</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Forecast Models</h3>
+
+                <p>
+                    Time-series prediction models estimate rainfall,
+                    storage levels and future system performance.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Optimization Algorithms</h3>
+
+                <p>
+                    AI continuously optimizes storage utilization,
+                    treatment processes and water distribution
+                    according to environmental conditions.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Decision Support</h3>
+
+                <p>
+                    Interactive dashboards provide recommendations
+                    for operators based on predictive analytics
+                    and explainable AI techniques.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Continuous Learning</h3>
+
+                <p>
+                    The AI system improves over time by incorporating
+                    newly collected monitoring data and operational
+                    feedback into the learning process.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="section">
+
+        <h2>Research Objectives</h2>
+
+        <p>
+            The AI-based framework contributes to resilient urban water
+            management by increasing resource efficiency, reducing operational
+            costs and supporting sustainable climate adaptation strategies.
+            The developed methods are transferable to future smart cities,
+            water utilities and blue-green infrastructure projects worldwide.
+        </p>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 | Blue Green Yard AI
+</footer>
+
+</body>
+</html>
