@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,10 +10,18 @@
 
 <style>
 
+/* =========================================================
+   BASIC
+========================================================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
@@ -20,11 +29,17 @@ body{
     background:linear-gradient(135deg,#0a2540,#0e7490,#10b981);
     color:white;
     line-height:1.7;
+    min-height:100vh;
 }
+
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 header{
     text-align:center;
-    padding:70px 20px 40px;
+    padding:70px 20px 45px;
 }
 
 header h1{
@@ -33,11 +48,16 @@ header h1{
 }
 
 header p{
-    max-width:850px;
+    max-width:900px;
     margin:auto;
     font-size:1.15rem;
     color:#e2e8f0;
 }
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 nav{
     margin-top:25px;
@@ -53,18 +73,77 @@ nav a{
     font-weight:600;
     padding:8px 14px;
     border-radius:10px;
+    transition:0.3s;
     background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(6px);
 }
 
 nav a:hover{
     background:white;
     color:#0a2540;
+    transform:translateY(-2px);
 }
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    width:90%;
+    max-width:1400px;
+    height:430px;
+    margin:20px auto 45px;
+    border-radius:22px;
+    overflow:hidden;
+    position:relative;
+    box-shadow:0 12px 40px rgba(0,0,0,0.35);
+}
+
+.hero img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        90deg,
+        rgba(10,37,64,0.8),
+        rgba(10,37,64,0.15)
+    );
+}
+
+.hero-content{
+    position:absolute;
+    z-index:2;
+    left:45px;
+    bottom:40px;
+    max-width:650px;
+}
+
+.hero-content h2{
+    color:white;
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.hero-content p{
+    color:#e2e8f0;
+}
+
+
+/* =========================================================
+   GENERAL
+========================================================= */
 
 .container{
     width:90%;
     max-width:1200px;
-    margin:40px auto;
+    margin:auto;
 }
 
 .section{
@@ -73,20 +152,34 @@ nav a:hover{
     padding:40px;
     margin-bottom:30px;
     border-radius:20px;
+    border:1px solid rgba(255,255,255,0.08);
 }
 
 h2{
     color:#7dd3fc;
     margin-bottom:20px;
+    font-size:1.8rem;
 }
 
 h3{
     margin-bottom:8px;
 }
 
+p{
+    color:#f1f5f9;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
 .cards{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:repeat(
+        auto-fit,
+        minmax(220px,1fr)
+    );
     gap:20px;
 }
 
@@ -94,15 +187,110 @@ h3{
     background:rgba(255,255,255,0.08);
     padding:25px;
     border-radius:18px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    background:rgba(255,255,255,0.11);
 }
 
 .card strong{
     color:#a7f3d0;
 }
 
+
+/* =========================================================
+   MAIN PROCESS
+========================================================= */
+
+.flow{
+    display:grid;
+    grid-template-columns:repeat(
+        auto-fit,
+        minmax(180px,1fr)
+    );
+    gap:15px;
+    margin-top:25px;
+}
+
+.flow-step{
+    background:rgba(255,255,255,0.08);
+    padding:22px 18px;
+    border-radius:16px;
+    text-align:center;
+}
+
+.flow-step .icon{
+    display:block;
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.flow-step strong{
+    color:#a7f3d0;
+    display:block;
+    margin-bottom:6px;
+}
+
+
+/* =========================================================
+   VALUES
+========================================================= */
+
+.values{
+    margin-top:25px;
+    display:grid;
+    grid-template-columns:repeat(
+        auto-fit,
+        minmax(140px,1fr)
+    );
+    gap:15px;
+}
+
+.value{
+    text-align:center;
+    padding:18px;
+    border-radius:15px;
+    background:rgba(10,37,64,0.5);
+}
+
+.value strong{
+    display:block;
+    color:#a7f3d0;
+    font-size:1.35rem;
+}
+
+
+/* =========================================================
+   FORMULA
+========================================================= */
+
+.formula{
+    margin-top:25px;
+    padding:22px;
+    background:rgba(10,37,64,0.55);
+    border-left:4px solid #7dd3fc;
+    border-radius:14px;
+    text-align:center;
+    color:#e0f2fe;
+}
+
+.formula strong{
+    color:#7dd3fc;
+}
+
+
+/* =========================================================
+   SCREENSHOTS
+========================================================= */
+
 .images{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    grid-template-columns:repeat(
+        auto-fit,
+        minmax(280px,1fr)
+    );
     gap:20px;
 }
 
@@ -119,57 +307,122 @@ h3{
     display:block;
 }
 
-.image-card p{
-    padding:18px;
-    font-size:0.95rem;
+.image-card-content{
+    padding:20px;
 }
 
-.flow{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:15px;
+.image-card-content strong{
+    color:#a7f3d0;
+}
+
+
+/* =========================================================
+   SELF LEARNING
+========================================================= */
+
+.learning-wrapper{
+    margin-top:30px;
+    padding:30px;
+    background:rgba(10,37,64,0.35);
+    border-radius:20px;
+}
+
+.learning-title{
+    color:#a7f3d0;
+    font-size:1.3rem;
+    margin-bottom:10px;
+}
+
+.learning-flow{
+    display:flex;
+    justify-content:center;
+    align-items:stretch;
+    gap:10px;
+    flex-wrap:wrap;
     margin-top:25px;
 }
 
-.flow div{
-    background:rgba(255,255,255,0.08);
-    padding:20px;
-    border-radius:15px;
+.learning-step{
+    flex:1;
+    min-width:145px;
+    max-width:190px;
     text-align:center;
+    padding:18px 14px;
+    border-radius:15px;
+    background:rgba(255,255,255,0.08);
 }
 
-.flow span{
+.learning-step .icon{
+    font-size:1.8rem;
     display:block;
-    font-size:1.6rem;
     margin-bottom:8px;
 }
 
-.values{
-    margin-top:25px;
+.learning-step strong{
+    color:#7dd3fc;
+}
+
+.learning-step p{
+    font-size:0.9rem;
+    margin-top:5px;
+}
+
+.learning-arrow{
     display:flex;
-    gap:15px;
-    flex-wrap:wrap;
+    align-items:center;
+    color:#7dd3fc;
+    font-size:1.8rem;
+    font-weight:bold;
 }
 
-.value{
-    flex:1;
-    min-width:140px;
-    text-align:center;
-    padding:18px;
+
+/* =========================================================
+   LEARNING TWO COLUMNS
+========================================================= */
+
+.learning-columns{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-top:25px;
+}
+
+.learning-card{
+    padding:25px;
+    border-radius:18px;
+    background:rgba(255,255,255,0.07);
+}
+
+.learning-card h3{
+    color:#7dd3fc;
+}
+
+
+/* =========================================================
+   HIGHLIGHT
+========================================================= */
+
+.highlight{
+    margin-top:25px;
+    padding:20px;
     border-radius:15px;
-    background:rgba(10,37,64,0.5);
+    background:rgba(16,185,129,0.14);
+    border:1px solid rgba(167,243,208,0.3);
 }
 
-.value strong{
-    display:block;
+.highlight strong{
     color:#a7f3d0;
-    font-size:1.4rem;
 }
+
+
+/* =========================================================
+   OPERATION LOG
+========================================================= */
 
 .log{
-    padding:18px 20px;
-    margin-bottom:12px;
-    border-radius:14px;
+    padding:20px;
+    margin-bottom:14px;
+    border-radius:15px;
     background:rgba(10,37,64,0.55);
     border-left:4px solid #34d399;
 }
@@ -177,37 +430,100 @@ h3{
 .log-time{
     color:#7dd3fc;
     font-size:0.85rem;
+    font-weight:bold;
 }
 
 .log-title{
+    font-size:1.05rem;
     font-weight:bold;
-    margin:3px 0;
+    margin:4px 0;
 }
 
+.log-details{
+    color:#cbd5e1;
+    font-size:0.92rem;
+    margin-top:5px;
+}
+
+
+/* =========================================================
+   NEXT STEP
+========================================================= */
+
 .next{
-    border:1px solid rgba(167,243,208,.35);
-    background:rgba(16,185,129,.13);
+    background:rgba(16,185,129,0.13);
+    border:1px solid rgba(167,243,208,0.3);
 }
 
 .inventory{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    grid-template-columns:repeat(
+        auto-fit,
+        minmax(180px,1fr)
+    );
     gap:15px;
     margin-top:25px;
 }
 
-.inventory div{
-    padding:20px;
-    background:rgba(255,255,255,0.08);
-    border-radius:15px;
+.inventory-item{
+    padding:22px;
+    border-radius:16px;
     text-align:center;
+    background:rgba(255,255,255,0.08);
 }
 
-.inventory strong{
+.inventory-item .icon{
+    display:block;
+    font-size:2rem;
+    margin-bottom:8px;
+}
+
+.inventory-item strong{
     display:block;
     color:#a7f3d0;
     margin-bottom:5px;
 }
+
+
+/* =========================================================
+   FINAL VISION
+========================================================= */
+
+.decision{
+    margin-top:25px;
+    padding:25px;
+    border-radius:18px;
+    text-align:center;
+    background:rgba(10,37,64,0.55);
+}
+
+.decision strong{
+    color:#a7f3d0;
+}
+
+.decision-flow{
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.decision-flow span{
+    padding:9px 14px;
+    border-radius:10px;
+    background:rgba(125,211,252,0.12);
+}
+
+.decision-flow b{
+    color:#7dd3fc;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
     text-align:center;
@@ -215,101 +531,241 @@ footer{
     color:#cbd5e1;
 }
 
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:850px){
+
+    header h1{
+        font-size:2.3rem;
+    }
+
+    .learning-columns{
+        grid-template-columns:1fr;
+    }
+
+    .learning-arrow{
+        width:100%;
+        justify-content:center;
+        transform:rotate(90deg);
+    }
+
+    .hero{
+        height:350px;
+    }
+
+    .hero-content{
+        left:25px;
+        right:25px;
+        bottom:25px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .section{
+        padding:25px;
+    }
+
+    .hero{
+        height:300px;
+    }
+
+}
+
 </style>
+
 </head>
 
 
 <body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
 <header>
 
 <h1>Smart Rainwater Management</h1>
 
 <p>
-From weather forecast to automatic storage management:
-development of a sensor-based and forecast-driven control system
-for the Blue Green Yard.
+From weather forecast to automated and self-learning
+rainwater storage management in the Blue Green Yard.
 </p>
 
 <nav>
-    <a href="index.html">Start</a>
-    <a href="technical.html">Technical Concept</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="ai.html">AI</a>
-    <a href="results.html">Result</a>
-    <a href="media.html">Media</a>
-    <a href="contact.html">Contact</a>
+
+<a href="index.html">Start</a>
+<a href="technical.html">Technical Concept</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="ai.html">AI</a>
+<a href="results.html">Result</a>
+<a href="media.html">Media</a>
+<a href="contact.html">Contact</a>
+
 </nav>
 
 </header>
 
 
+
+<!-- =========================================================
+     HERO IMAGE
+========================================================= -->
+
+<div class="hero">
+
+<!--
+Replace this image with a suitable overview image
+of the Blue Green Yard / cistern system.
+-->
+
+<img
+    src="images/rainwater-system.jpg"
+    alt="Blue Green Yard rainwater management system"
+>
+
+<div class="hero-content">
+
+<h2>
+From Forecast to Automatic Water Management
+</h2>
+
+<p>
+Weather forecasts, sensor data and hydraulic control
+are combined to manage storage capacity before and
+during rain events.
+</p>
+
+</div>
+
+</div>
+
+
+
 <div class="container">
 
 
-<!-- WHAT WE BUILT -->
+
+<!-- =========================================================
+     1 WHAT WE BUILT
+========================================================= -->
 
 <section class="section">
 
 <h2>What We Have Developed</h2>
 
 <p>
-The rainwater storage system has been extended from manual operation
-to an automated management system. Weather forecasts, current tank
-levels and the hydraulic pump network are combined to decide when
-water needs to be retained, transferred or discharged.
+The rainwater storage system has been extended from manual
+operation to an automated management system.
+Forecast data, current tank levels and the hydraulic network
+are combined to decide whether water should remain stored,
+be transferred or be discharged.
 </p>
+
 
 <div class="flow">
 
-<div>
-<span>🌧️</span>
-<strong>DWD Forecast</strong>
-<p>Expected rainfall is continuously considered.</p>
+
+<div class="flow-step">
+
+<span class="icon">🌧️</span>
+
+<strong>Weather Forecast</strong>
+
+<p>
+Expected rainfall is considered before the rain event occurs.
+</p>
+
 </div>
 
-<div>
-<span>📡</span>
+
+<div class="flow-step">
+
+<span class="icon">📡</span>
+
 <strong>Tank Sensors</strong>
-<p>Current water levels provide the available storage capacity.</p>
+
+<p>
+Current water levels show the available storage capacity.
+</p>
+
 </div>
 
-<div>
-<span>🧠</span>
+
+<div class="flow-step">
+
+<span class="icon">🧮</span>
+
 <strong>Calculation</strong>
-<p>Expected rainfall is converted into tank-specific inflow.</p>
+
+<p>
+Forecast rainfall is converted into an expected inflow
+for every tank.
+</p>
+
 </div>
 
-<div>
-<span>⚙️</span>
+
+<div class="flow-step">
+
+<span class="icon">⚙️</span>
+
 <strong>Automatic Control</strong>
-<p>Pumps and valves execute the required water transfer.</p>
+
+<p>
+If required, pumps and valves automatically create
+additional storage capacity.
+</p>
+
 </div>
+
 
 </div>
 
 
 <div class="values">
 
+
 <div class="value">
+
 <strong>1 h</strong>
+
 Forecast window
+
 </div>
 
+
 <div class="value">
+
 <strong>40 L/min</strong>
+
 Pump calculation
+
 </div>
 
+
 <div class="value">
+
 <strong>95 %</strong>
-Overflow protection
+
+Overflow threshold
+
 </div>
 
+
 <div class="value">
+
 <strong>80 %</strong>
+
 Overflow target
+
 </div>
+
 
 </div>
 
@@ -317,53 +773,91 @@ Overflow target
 
 
 
-<!-- SCREENSHOTS -->
+<!-- =========================================================
+     2 SCREENSHOTS
+========================================================= -->
 
 <section class="section">
 
 <h2>The System in Practice</h2>
 
+
 <div class="images">
 
 
+<!-- WEATHER IMAGE -->
+
 <div class="image-card">
 
-<img src="images/dwd-forecast.png"
-     alt="DWD rainfall forecast">
+<img
+    src="images/dwd-forecast.jpg"
+    alt="Weather and rainfall forecast"
+>
+
+<div class="image-card-content">
 
 <p>
+
 <strong>Weather Forecast</strong><br>
-Rainfall forecasts provide the basis for predicting
-the expected inflow into the storage tanks.
+
+Forecast rainfall provides the basis for estimating
+how much additional water may enter the storage system.
+
 </p>
 
 </div>
 
+</div>
+
+
+
+<!-- STORAGE MANAGEMENT IMAGE -->
 
 <div class="image-card">
 
-<img src="images/storage-dashboard.png"
-     alt="Automatic storage management dashboard">
+<img
+    src="images/storage-dashboard.jpg"
+    alt="Automatic storage management dashboard"
+>
+
+<div class="image-card-content">
 
 <p>
+
 <strong>Storage Management</strong><br>
-Tank levels, available storage capacity and automatic
-transfer decisions are displayed in the dashboard.
+
+Tank levels, available storage capacity and calculated
+water transfers are combined within the dashboard.
+
 </p>
 
 </div>
 
+</div>
+
+
+
+<!-- OPERATION LOG IMAGE -->
 
 <div class="image-card">
 
-<img src="images/operation-log.png"
-     alt="Blue Green Yard operation log">
+<img
+    src="images/operation-log.jpg"
+    alt="Automatic operation log"
+>
+
+<div class="image-card-content">
 
 <p>
+
 <strong>Operation Log</strong><br>
-Automatic and manual actions are recorded with time,
-water volume, pumps, valves and operating mode.
+
+Automatic and manual actions are recorded with timestamps,
+volumes, pumps, valves and operating mode.
+
 </p>
+
+</div>
 
 </div>
 
@@ -374,69 +868,405 @@ water volume, pumps, valves and operating mode.
 
 
 
-<!-- FORECAST LOGIC -->
+<!-- =========================================================
+     3 FORECAST BASED MANAGEMENT
+========================================================= -->
 
 <section class="section">
 
 <h2>Forecast-Based Storage Management</h2>
 
 <p>
-Each tank has its own rainfall inflow factor because the connected
-roof areas differ. The forecast rainfall is therefore converted
-into an expected water volume for every tank.
+Each tank receives a different amount of rainwater because
+different roof areas are connected to the storage system.
+For this reason, a tank-specific inflow factor is used.
 </p>
+
 
 <div class="values">
 
+
 <div class="value">
+
 <strong>3.817 L/mm</strong>
+
 Tank 1
+
 </div>
 
+
 <div class="value">
+
 <strong>0.880 L/mm</strong>
+
 Tank 2
+
 </div>
 
+
 <div class="value">
+
 <strong>3.431 L/mm</strong>
+
 Tank 3
+
 </div>
+
 
 <div class="value">
+
 <strong>0.325 L/mm</strong>
+
 Tank 4
-</div>
 
 </div>
+
+
+</div>
+
+
+<div class="formula">
+
+<strong>Expected inflow</strong>
+
+<br><br>
+
+Rainfall forecast [mm]
+×
+tank-specific inflow factor [L/mm]
 
 <br>
 
-<p>
-Only if the current tank volume plus the expected rainfall exceeds
-the available capacity does the system create additional storage space.
-</p>
+=
+
+<br>
+
+Expected inflow [L]
+
+</div>
+
+
+<div class="formula">
+
+<strong>Required storage release</strong>
+
+<br><br>
+
+max(
+0,
+current volume
++
+expected rainfall inflow
+-
+usable storage capacity
+)
+
+</div>
+
+
+<div class="highlight">
+
+<strong>Demand-based control:</strong><br>
+
+Water is not automatically discharged simply because rain
+is forecast. Only the amount that is expected to exceed
+the available storage capacity has to be moved.
+
+</div>
 
 </section>
 
 
 
-<!-- IMPLEMENTED AUTOMATION -->
+<!-- =========================================================
+     4 SELF LEARNING MODEL
+========================================================= -->
 
 <section class="section">
 
-<h2>Automation Already Implemented</h2>
+<h2>Self-Learning Rainfall & Inflow Model</h2>
+
+<p>
+The calculation does not remain static.
+After real rain events, forecast data, measured rainfall
+and the actual tank response can be compared.
+The system therefore continuously learns how much water
+actually reaches each tank during rainfall.
+</p>
+
+
+<div class="learning-columns">
+
+
+<!-- FORECAST QUALITY -->
+
+<div class="learning-card">
+
+<h3>1. Forecast Validation</h3>
+
+<p>
+The predicted rainfall is compared with the rainfall that
+actually occurred.
+</p>
+
+<br>
+
+<p>
+This makes it possible to evaluate how closely the weather
+forecast represented the real rain event.
+</p>
+
+<div class="formula">
+
+Forecast rainfall
+
+<br>
+
+vs.
+
+<br>
+
+Measured rainfall
+
+</div>
+
+</div>
+
+
+
+<!-- INFLOW LEARNING -->
+
+<div class="learning-card">
+
+<h3>2. Inflow Learning</h3>
+
+<p>
+The measured rainfall is then compared with the actual
+increase in tank volume.
+</p>
+
+<br>
+
+<p>
+This provides a new observed relationship between rainfall
+and tank inflow.
+</p>
+
+<div class="formula">
+
+Observed inflow factor
+
+<br><br>
+
+Tank volume increase [L]
+
+÷
+
+Measured rainfall [mm]
+
+<br>
+
+=
+
+<br>
+
+L/mm
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<div class="learning-wrapper">
+
+<div class="learning-title">
+
+How the learning cycle works
+
+</div>
+
+
+<div class="learning-flow">
+
+
+<div class="learning-step">
+
+<span class="icon">🌦️</span>
+
+<strong>Forecast</strong>
+
+<p>
+How much rainfall was predicted?
+</p>
+
+</div>
+
+
+<div class="learning-arrow">
+→
+</div>
+
+
+<div class="learning-step">
+
+<span class="icon">🌧️</span>
+
+<strong>Measured Rain</strong>
+
+<p>
+How much rain actually occurred?
+</p>
+
+</div>
+
+
+<div class="learning-arrow">
+→
+</div>
+
+
+<div class="learning-step">
+
+<span class="icon">📈</span>
+
+<strong>Tank Response</strong>
+
+<p>
+How much did the real tank volume increase?
+</p>
+
+</div>
+
+
+<div class="learning-arrow">
+→
+</div>
+
+
+<div class="learning-step">
+
+<span class="icon">🧠</span>
+
+<strong>Learning</strong>
+
+<p>
+A new observed L/mm value is determined.
+</p>
+
+</div>
+
+
+<div class="learning-arrow">
+→
+</div>
+
+
+<div class="learning-step">
+
+<span class="icon">🔄</span>
+
+<strong>Adaptation</strong>
+
+<p>
+The inflow factor is gradually updated.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<div class="highlight">
+
+<strong>Continuous adaptation:</strong><br>
+
+The system does not simply replace the existing factor
+after one rain event.
+
+After several valid events, the recent measurements are
+evaluated using a robust median and the resulting value
+is adopted gradually.
+
+This reduces the influence of individual sensor errors
+or unusual rain events.
+
+</div>
+
+
+<div class="decision">
+
+<strong>The learning loop</strong>
+
+<div class="decision-flow">
+
+<span>Forecast</span>
+
+<b>→</b>
+
+<span>Prediction</span>
+
+<b>→</b>
+
+<span>Real Rain</span>
+
+<b>→</b>
+
+<span>Tank Response</span>
+
+<b>→</b>
+
+<span>Learning</span>
+
+<b>→</b>
+
+<span>Improved Inflow Factor</span>
+
+<b>→</b>
+
+<span>Next Forecast</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     5 AUTOMATIC CONTROL
+========================================================= -->
+
+<section class="section">
+
+<h2>Automatic Storage Control</h2>
+
+<p>
+In automatic mode, the system regularly evaluates the
+forecast and the current tank levels.
+If storage capacity is insufficient, an appropriate
+transfer route is selected and executed automatically.
+</p>
+
 
 <div class="cards">
+
 
 <div class="card">
 
 <h3>Forecast-Based Transfer</h3>
 
 <p>
-Before expected rainfall, the system calculates whether storage
-capacity is missing and automatically determines the required
-transfer volume.
+Expected rain is converted into expected tank inflow.
+Only the required storage volume is created.
 </p>
 
 </div>
@@ -447,8 +1277,8 @@ transfer volume.
 <h3>Automatic CWH Supply</h3>
 
 <p>
-The CWH reservoir is automatically refilled when its defined
-water level is reached.
+The CWH reservoir is automatically refilled when its
+defined start level is reached.
 </p>
 
 </div>
@@ -459,8 +1289,8 @@ water level is reached.
 <h3>Overflow Protection</h3>
 
 <p>
-If a main tank reaches a critical level, water is automatically
-transferred to another suitable tank.
+A measured tank level of 95 % or more triggers an
+additional reactive protection mechanism.
 </p>
 
 </div>
@@ -468,14 +1298,15 @@ transferred to another suitable tank.
 
 <div class="card">
 
-<h3>Adaptive Inflow Model</h3>
+<h3>Sensor-Based Stop</h3>
 
 <p>
-Measured rain events can be used to gradually improve the
-tank-specific rainfall inflow factors.
+During pumping, current tank levels are monitored.
+The calculated runtime serves as an additional fallback.
 </p>
 
 </div>
+
 
 </div>
 
@@ -483,178 +1314,374 @@ tank-specific rainfall inflow factors.
 
 
 
-<!-- REAL LOG ENTRIES -->
+<!-- =========================================================
+     7 OPERATION LOG
+========================================================= -->
 
 <section class="section">
 
-<h2>Examples from the Automatic Operation Log</h2>
+<h2>Examples from Automatic Operation</h2>
 
-<p style="margin-bottom:20px;">
-The following events were automatically recorded during operation:
+<p style="margin-bottom:22px;">
+
+Automatic decisions and actions are documented in the
+operation log. The following examples show real actions
+recorded during system operation.
+
 </p>
 
+
+
+<!-- CWH -->
 
 <div class="log">
 
 <div class="log-time">
+
 17 Aug 2026 · 10:53
+
 </div>
 
 <div class="log-title">
+
 Automatic CWH refill started
+
 </div>
 
 <p>
-95.2 L requested · Pump 1 · Valve 2<br>
-Refill completed automatically at 10:56.
+
+The CWH reservoir was automatically refilled towards
+its maximum water level.
+
 </p>
+
+<div class="log-details">
+
+95.2 L · Pump 1 · Valve 2 · Auto Mode
+
+<br>
+
+Refill completed at 10:56.
 
 </div>
 
+</div>
+
+
+
+<!-- FORECAST TRANSFER -->
 
 <div class="log">
 
 <div class="log-time">
+
 19 Aug 2026 · 10:54
+
 </div>
 
 <div class="log-title">
-Forecast-based discharge plan
+
+Forecast-based storage transfer
+
 </div>
 
 <p>
-Tank 3 → Tank 4 · 3.5 L · Pump 3<br>
-Automatic discharge plan completed successfully.
+
+The automatic discharge plan determined that additional
+storage capacity was required in Tank 3.
+
 </p>
+
+<div class="log-details">
+
+Tank 3 → Tank 4 · 3.5 L · Pump 3 · Auto Mode
+
+<br>
+
+Automatic plan completed successfully.
 
 </div>
 
+</div>
+
+
+
+<!-- OVERFLOW -->
 
 <div class="log">
 
 <div class="log-time">
+
 19 Aug 2026 · 11:31
+
 </div>
 
 <div class="log-title">
-Automatic overflow protection
+
+Reactive overflow protection
+
 </div>
 
 <p>
-Tank 1 → Tank 2 · 54.7 L · Pump 1 + Valve 1<br>
-Transfer automatically completed at 11:33.
+
+A critical tank level triggered an automatic transfer
+from Tank 1 to Tank 2.
+
 </p>
+
+<div class="log-details">
+
+Tank 1 → Tank 2 · 54.7 L · Pump 1 + Valve 1 · Auto Mode
+
+<br>
+
+Transfer completed at 11:33.
+
+</div>
 
 </div>
 
 </section>
 
 
-
-<!-- NEXT STEP -->
+<!-- =========================================================
+     9 FUTURE RAINWATER INVENTORY
+========================================================= -->
 
 <section class="section next">
 
 <h2>Next Step: Rainwater Inventory</h2>
 
 <p>
-The current system mainly manages <strong>water quantity</strong>:
-How much water is stored? How much rain is expected?
-Where is free storage capacity available?
+The current system primarily manages
+<strong>water quantity</strong>:
+How much water is available, how much storage capacity
+is free and how much rain is expected?
 </p>
 
 <br>
 
 <p>
-The next development step is to also include
-<strong>water quality and water age</strong>.
-This creates a digital <strong>Rainwater Inventory</strong>
-for every storage tank.
+The next development step is to extend this quantitative
+management with information about
+<strong>water age and water quality</strong>.
 </p>
 
 
 <div class="inventory">
 
-<div>
+
+<div class="inventory-item">
+
+<span class="icon">💧</span>
+
 <strong>Water Quantity</strong>
+
 Current volume and available storage capacity
+
 </div>
 
-<div>
+
+<div class="inventory-item">
+
+<span class="icon">⏱️</span>
+
 <strong>Water Age</strong>
-How long the water has remained in the tank
+
+How long has the water remained in each tank?
+
 </div>
 
-<div>
+
+<div class="inventory-item">
+
+<span class="icon">🔬</span>
+
 <strong>Water Quality</strong>
+
 Future integration of relevant quality parameters
+
 </div>
 
-<div>
+
+<div class="inventory-item">
+
+<span class="icon">🌧️</span>
+
 <strong>Rain Forecast</strong>
-Expected new and potentially fresher rainwater
-</div>
+
+How much fresh rainwater is expected?
 
 </div>
 
-<br>
 
-<p>
-This would allow the system to decide not only
-<strong>where storage space is required</strong>, but also
-<strong>which water should be retained, transferred, used or replaced</strong>.
-</p>
-
-<br>
-
-<p>
-When sufficient rainwater is available, the management strategy
-could therefore shift from purely
-<strong>quantitative storage management</strong>
-to <strong>quality-oriented water management</strong>.
-</p>
+</div>
 
 </section>
 
 
 
-<!-- VISION -->
+<!-- =========================================================
+     10 QUANTITY TO QUALITY
+========================================================= -->
 
 <section class="section">
 
-<h2>From Storage Control to Intelligent Water Management</h2>
+<h2>From Quantitative to Quality-Oriented Management</h2>
 
-<div class="flow">
+<p>
+When storage capacity is limited, the primary objective is
+quantitative management: sufficient volume must be available
+for the next rainfall event.
+</p>
 
-<div>
-<span>💧</span>
-<strong>How much water?</strong>
-<p>Quantity</p>
+<br>
+
+<p>
+However, when sufficient rainwater is available, the management
+strategy can increasingly consider water quality.
+Instead of only asking
+<strong>"Where is free capacity?"</strong>,
+the system can also ask
+<strong>"Which water should be retained?"</strong>.
+</p>
+
+
+<div class="decision">
+
+<strong>Future decision logic</strong>
+
+<div class="decision-flow">
+
+<span>Quantity</span>
+
+<b>+</b>
+
+<span>Water Age</span>
+
+<b>+</b>
+
+<span>Water Quality</span>
+
+<b>+</b>
+
+<span>Rain Forecast</span>
+
+<b>→</b>
+
+<span>Decision</span>
+
 </div>
 
-<div>
-<span>⏱️</span>
-<strong>How old is it?</strong>
-<p>Water age</p>
 </div>
 
-<div>
-<span>🔬</span>
-<strong>How good is it?</strong>
-<p>Water quality</p>
+
+<div class="cards" style="margin-top:25px;">
+
+
+<div class="card">
+
+<h3>Keep</h3>
+
+<p>
+Water with sufficient quality can remain stored.
+</p>
+
 </div>
 
-<div>
-<span>🌧️</span>
-<strong>What comes next?</strong>
-<p>Rain forecast</p>
+
+<div class="card">
+
+<h3>Transfer</h3>
+
+<p>
+Water can be moved to another tank depending on
+storage demand and quality.
+</p>
+
 </div>
 
-<div>
-<span>🧠</span>
-<strong>What should happen?</strong>
-<p>Keep · transfer · use · replace</p>
+
+<div class="card">
+
+<h3>Use</h3>
+
+<p>
+Suitable water can be prioritised for irrigation,
+cooling or other applications.
+</p>
+
 </div>
+
+
+<div class="card">
+
+<h3>Replace</h3>
+
+<p>
+Older or lower-quality water could be used or discharged
+before fresh rainwater enters the system.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     11 VISION
+========================================================= -->
+
+<section class="section">
+
+<h2>Vision: Intelligent Rainwater Inventory</h2>
+
+<p>
+The long-term goal is a digital inventory that describes
+not only how much rainwater is stored, but also its age,
+quality and expected future inflow.
+</p>
+
+
+<div class="decision">
+
+<div class="decision-flow">
+
+<span>How much water?</span>
+
+<b>→</b>
+
+<span>How old?</span>
+
+<b>→</b>
+
+<span>What quality?</span>
+
+<b>→</b>
+
+<span>How much rain is coming?</span>
+
+<b>→</b>
+
+<span>What should the system do?</span>
+
+</div>
+
+</div>
+
+
+<div class="highlight">
+
+<strong>Development direction:</strong><br>
+
+From a purely quantitative storage management system
+towards an adaptive and quality-oriented rainwater
+management system that can decide which water should
+be stored, transferred, used or replaced.
 
 </div>
 
@@ -664,9 +1691,18 @@ to <strong>quality-oriented water management</strong>.
 </div>
 
 
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
 <footer>
+
 © 2026 | Blue Green Yard AI
+
 </footer>
 
+
 </body>
+
 </html>
