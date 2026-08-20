@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cooling & Thermal Comfort | Blue Green Yard</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(135deg,#0a2540,#0e7490,#10b981);
+    color:white;
+    line-height:1.7;
+}
+
+header{
+    text-align:center;
+    padding:70px 20px 40px;
+}
+
+header h1{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+header p{
+    max-width:900px;
+    margin:auto;
+    font-size:1.15rem;
+    color:#e2e8f0;
+}
+
+nav{
+    margin-top:25px;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    padding:8px 14px;
+    border-radius:10px;
+    background:rgba(255,255,255,0.15);
+    transition:.3s;
+}
+
+nav a:hover{
+    background:white;
+    color:#0a2540;
+    transform:translateY(-2px);
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:40px auto;
+}
+
+.section{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    padding:40px;
+    margin-bottom:30px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.12);
+}
+
+h2{
+    color:#7dd3fc;
+    margin-bottom:20px;
+    font-size:1.8rem;
+}
+
+h3{
+    margin-bottom:8px;
+}
+
+
+/* HERO IMAGE */
+
+.hero{
+    width:90%;
+    max-width:1400px;
+    margin:30px auto 50px;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+
+.hero img{
+    width:100%;
+    display:block;
+    max-height:600px;
+    object-fit:cover;
+}
+
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    padding:25px;
+    border-radius:18px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    background:rgba(255,255,255,0.11);
+}
+
+.icon{
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.value{
+    color:#a7f3d0;
+    font-size:1.4rem;
+    font-weight:bold;
+}
+
+
+/* MEASUREMENT HEIGHT */
+
+.height-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-top:25px;
+}
+
+.height{
+    text-align:center;
+    padding:30px 15px;
+    border-radius:18px;
+    background:rgba(255,255,255,0.08);
+}
+
+.height strong{
+    display:block;
+    font-size:2rem;
+    color:#a7f3d0;
+}
+
+
+/* PROCESS */
+
+.flow{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+    margin-top:25px;
+}
+
+.flow-item{
+    padding:22px;
+    border-radius:16px;
+    background:rgba(255,255,255,.08);
+    text-align:center;
+}
+
+.flow-item span{
+    display:block;
+    font-size:2rem;
+    margin-bottom:8px;
+}
+
+
+/* LANGUAGE */
+
+.language-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.language{
+    background:rgba(255,255,255,.07);
+    padding:25px;
+    border-radius:18px;
+}
+
+.language-title{
+    color:#a7f3d0;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+
+/* HIGHLIGHT */
+
+.highlight{
+    margin-top:25px;
+    padding:22px;
+    border-radius:16px;
+    background:rgba(16,185,129,.14);
+    border:1px solid rgba(167,243,208,.3);
+}
+
+
+/* SENSOR */
+
+.sensor-card{
+    display:grid;
+    grid-template-columns:100px 1fr;
+    gap:25px;
+    align-items:center;
+    background:rgba(10,37,64,.4);
+    padding:25px;
+    border-radius:18px;
+}
+
+.sensor-icon{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:rgba(125,211,252,.15);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:2.7rem;
+}
+
+.sensor-details{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:15px;
+    margin-top:15px;
+}
+
+.sensor-detail{
+    padding:15px;
+    background:rgba(255,255,255,.07);
+    border-radius:12px;
+}
+
+.sensor-detail strong{
+    display:block;
+    color:#7dd3fc;
+    font-size:.85rem;
+}
+
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:50px;
+    color:#cbd5e1;
+}
+
+
+@media(max-width:800px){
+
+    header h1{
+        font-size:2.2rem;
+    }
+
+    .section{
+        padding:25px;
+    }
+
+    .language-grid{
+        grid-template-columns:1fr;
+    }
+
+    .height-grid{
+        grid-template-columns:1fr;
+    }
+
+    .sensor-card{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .sensor-icon{
+        margin:auto;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>Cooling & Thermal Comfort</h1>
+
+<p>
+Investigation of local cooling effects and thermal comfort
+through water-based cooling elements and mobile environmental sensing.
+</p>
+
+<nav>
+
+<a href="index.html">Start</a>
+<a href="technical.html">Technical Concept</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="ai.html">AI</a>
+<a href="sensors.html">Sensors</a>
+<a href="cooling.html">Cooling</a>
+<a href="results.html">Result</a>
+<a href="media.html">Media</a>
+<a href="contact.html">Contact</a>
+
+</nav>
+
+</header>
+
+
+
+<!-- IMAGE -->
+
+<div class="hero">
+
+<img
+src="images/coolingelements.png"
+alt="Cooling elements and mobile sensor stations in the Blue Green Yard">
+
+</div>
+
+
+
+<div class="container">
+
+
+<!-- OVERVIEW -->
+
+<section class="section">
+
+<h2>Cool Spot & Mobile Monitoring</h2>
+
+<div class="language-grid">
+
+
+<div class="language">
+
+<div class="language-title">
+English
+</div>
+
+<p>
+Next to the City Water Hub is a <strong>Cool Spot</strong>
+featuring a waterfall and a misting system.
+Two mobile sensor stations can be flexibly placed throughout
+the Blue-Green Yard.
+</p>
+
+<br>
+
+<p>
+Air temperature, pressure and humidity are measured at heights
+of <strong>0.05 m, 1 m and 2 m</strong>.
+A black-globe thermometer is used to measure radiant heat
+and to support the determination of thermal stress using the
+<strong>Wet-Bulb Globe Temperature (WBGT)</strong>.
+</p>
+
+</div>
+
+
+
+<div class="language">
+
+<div class="language-title">
+Deutsch
+</div>
+
+<p>
+Neben dem City Water Hub befindet sich ein
+<strong>Cool Spot</strong> mit Wasserfall und Vernebelungssystem.
+Zwei mobile Sensorstationen können flexibel im gesamten
+Blue-Green Yard positioniert werden.
+</p>
+
+<br>
+
+<p>
+Gemessen werden Lufttemperatur, Luftdruck und Luftfeuchtigkeit
+in Höhen von <strong>0,05 m, 1 m und 2 m</strong>.
+Über ein Schwarzkugelthermometer wird zusätzlich die
+Strahlungswärme erfasst, um die thermische Belastung
+über den <strong>Wet-Bulb Globe Temperature (WBGT)</strong>
+zu bewerten.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- COOLING ELEMENTS -->
+
+<section class="section">
+
+<h2>Cooling Elements</h2>
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="icon">🌊</div>
+
+<h3>Waterfall</h3>
+
+<p>
+The waterfall creates a continuously wetted surface
+and supports evaporative cooling in the direct surroundings
+of the City Water Hub.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="icon">💦</div>
+
+<h3>Misting System</h3>
+
+<p>
+Fine water droplets are released into the surrounding air
+to investigate the local cooling effect of water evaporation.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="icon">📡</div>
+
+<h3>Mobile Sensor Stations</h3>
+
+<p>
+Two mobile measurement stations can be positioned
+at different locations to compare microclimatic conditions
+inside and outside the cooling area.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="icon">🌡️</div>
+
+<h3>Thermal Comfort</h3>
+
+<p>
+Environmental measurements are combined with radiant-heat
+measurements to evaluate thermal conditions and human heat stress.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- HEIGHTS -->
+
+<section class="section">
+
+<h2>Measurements at Different Heights</h2>
+
+<p>
+The vertical measurement setup allows microclimatic conditions
+to be investigated close to the ground as well as within
+the typical human exposure zone.
+</p>
+
+
+<div class="height-grid">
+
+
+<div class="height">
+
+<strong>0.05 m</strong>
+
+Ground Level
+
+<p>
+Microclimatic conditions directly above
+the ground surface.
+</p>
+
+</div>
+
+
+
+<div class="height">
+
+<strong>1.0 m</strong>
+
+Lower Human Level
+
+<p>
+Measurement of temperature, humidity
+and pressure within the pedestrian zone.
+</p>
+
+</div>
+
+
+
+<div class="height">
+
+<strong>2.0 m</strong>
+
+Upper Measurement Level
+
+<p>
+Comparison of vertical temperature and
+humidity gradients within the courtyard.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- PARAMETERS -->
+
+<section class="section">
+
+<h2>Measured Parameters</h2>
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="icon">🌡️</div>
+
+<h3>Air Temperature</h3>
+
+<p>
+Measurement of local temperature changes
+around the cooling elements.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="icon">💧</div>
+
+<h3>Relative Humidity</h3>
+
+<p>
+Monitoring of changes in atmospheric moisture
+caused by evaporation and misting.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="icon">🔵</div>
+
+<h3>Air Pressure</h3>
+
+<p>
+Atmospheric pressure is measured together with
+temperature and humidity by the mobile sensor stations.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="icon">☀️</div>
+
+<h3>Radiant Heat</h3>
+
+<p>
+A black-globe thermometer captures the thermal
+effect of surrounding radiation.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- WBGT -->
+
+<section class="section">
+
+<h2>Assessment of Thermal Stress</h2>
+
+<p>
+Air temperature alone does not fully describe how hot
+an outdoor environment feels. Solar radiation, humidity
+and surrounding surfaces also influence human thermal stress.
+</p>
+
+
+<div class="flow">
+
+
+<div class="flow-item">
+
+<span>🌡️</span>
+
+<strong>Air Temperature</strong>
+
+<p>
+Local thermal conditions
+</p>
+
+</div>
+
+
+
+<div class="flow-item">
+
+<span>💧</span>
+
+<strong>Humidity</strong>
+
+<p>
+Evaporative conditions
+</p>
+
+</div>
+
+
+
+<div class="flow-item">
+
+<span>⚫</span>
+
+<strong>Globe Temperature</strong>
+
+<p>
+Radiant heat exposure
+</p>
+
+</div>
+
+
+
+<div class="flow-item">
+
+<span>🧍</span>
+
+<strong>WBGT</strong>
+
+<p>
+Assessment of thermal stress
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="highlight">
+
+<strong>Objective:</strong><br>
+
+The measurement concept allows the cooling effect of the
+waterfall and misting system to be evaluated not only through
+air-temperature changes, but also in terms of the resulting
+thermal conditions experienced by people in the courtyard.
+
+</div>
+
+</section>
+
+
+
+<!-- SENSOR -->
+
+<section class="section">
+
+<h2>Black Globe Temperature Sensor</h2>
+
+
+<div class="sensor-card">
+
+
+<div class="sensor-icon">
+⚫
+</div>
+
+
+<div>
+
+<h3>Black Globe Temperature / Schwarzkugelthermometer</h3>
+
+<p>
+The black-globe thermometer complements the mobile
+microclimate measurements by recording radiant heat
+and supporting the evaluation of thermal stress.
+</p>
+
+
+<div class="sensor-details">
+
+
+<div class="sensor-detail">
+
+<strong>Sensor Type</strong>
+
+Ecowitt WN38
+
+</div>
+
+
+<div class="sensor-detail">
+
+<strong>Measurement</strong>
+
+Black Globe Temperature
+
+</div>
+
+
+<div class="sensor-detail">
+
+<strong>Application</strong>
+
+Thermal comfort / WBGT
+
+</div>
+
+
+<div class="sensor-detail">
+
+<strong>Access</strong>
+
+Locally accessed
+
+</div>
+
+
+<div class="sensor-detail">
+
+<strong>Status</strong>
+
+Active
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- PROJECT PURPOSE -->
+
+<section class="section">
+
+<h2>Purpose of the Cooling Investigation</h2>
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>Quantify Cooling</h3>
+
+<p>
+Determine how strongly the waterfall and misting system
+reduce local thermal loads.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>Compare Locations</h3>
+
+<p>
+Mobile sensor stations allow measurements at different
+positions within the Blue-Green Yard.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>Study Vertical Effects</h3>
+
+<p>
+Measurements at three heights help identify
+vertical temperature and humidity gradients.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>Evaluate Human Exposure</h3>
+
+<p>
+Black-globe temperature and WBGT provide an additional
+perspective on thermal comfort and heat stress.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+</div>
+
+
+<footer>
+
+© 2026 | Blue Green Yard AI
+
+</footer>
+
+
+</body>
+
+</html>
