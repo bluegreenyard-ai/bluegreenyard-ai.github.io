@@ -1,319 +1,1533 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Results | Blue Green Yard</title>
 
 <style>
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
+
+/* =========================================================
+   BASIC
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(135deg,#0a2540,#0e7490,#10b981);
+    color:white;
+    line-height:1.6;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+    text-align:center;
+    padding:65px 20px 35px;
+}
+
+header h1{
+    font-size:3rem;
+    margin-bottom:12px;
+}
+
+header p{
+    max-width:850px;
+    margin:auto;
+    font-size:1.1rem;
+    color:#e2e8f0;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav{
+    margin-top:22px;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    padding:8px 14px;
+    border-radius:10px;
+    background:rgba(255,255,255,0.15);
+    transition:.3s;
+}
+
+nav a:hover{
+    background:white;
+    color:#0a2540;
+    transform:translateY(-2px);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    width:90%;
+    max-width:1400px;
+    margin:15px auto 30px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 40px rgba(0,0,0,.3);
+}
+
+.hero img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+
+/* =========================================================
+   RESULT TABS
+========================================================= */
+
+.result-tabs{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:28px;
+    flex-wrap:wrap;
+}
+
+.result-tab-button{
+    border:none;
+    cursor:pointer;
+    padding:12px 26px;
+    border-radius:12px;
+    background:rgba(255,255,255,.13);
+    color:white;
+    font-size:1rem;
+    font-weight:600;
+    transition:.3s;
+}
+
+.result-tab-button:hover{
+    background:rgba(255,255,255,.22);
+}
+
+.result-tab-button.active{
+    background:white;
+    color:#0a2540;
+}
+
+.result-tab-content{
+    display:none;
+}
+
+.result-tab-content.active{
+    display:block;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(10px);
+    padding:32px;
+    margin-bottom:24px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+h2{
+    color:#7dd3fc;
+    margin-bottom:17px;
+}
+
+h3{
+    margin-bottom:6px;
+}
+
+p{
+    color:#f1f5f9;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:16px;
+}
+
+.card{
+    background:rgba(255,255,255,.08);
+    padding:20px;
+    border-radius:16px;
+}
+
+.card h3{
+    color:#a7f3d0;
+}
+
+.card ul{
+    margin-top:8px;
+    padding-left:18px;
+    color:#e2e8f0;
+    font-size:.93rem;
+}
+
+
+/* =========================================================
+   EVENT TIMELINE
+========================================================= */
+
+.event-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-top:20px;
+}
+
+.event-card{
+    padding:20px 15px;
+    border-radius:17px;
+    background:rgba(255,255,255,.08);
+    text-align:center;
+    position:relative;
+}
+
+.event-card:not(:last-child)::after{
+    content:"→";
+    position:absolute;
+    right:-13px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#7dd3fc;
+    font-size:1.5rem;
+    font-weight:bold;
+    z-index:2;
+}
+
+.event-icon{
+    font-size:2rem;
+    margin-bottom:4px;
+}
+
+.event-label{
+    color:#7dd3fc;
+    font-size:.82rem;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+}
+
+.event-value{
+    color:#a7f3d0;
+    font-size:1.55rem;
+    font-weight:bold;
+    margin:5px 0;
+}
+
+.event-small{
+    color:#cbd5e1;
+    font-size:.85rem;
+}
+
+
+/* =========================================================
+   FORECAST VS REAL
+========================================================= */
+
+.compare-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin-top:20px;
+}
+
+.compare-card{
+    padding:22px;
+    border-radius:17px;
+    background:rgba(10,37,64,.42);
+}
+
+.compare-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:15px;
+    margin-bottom:12px;
+}
+
+.compare-head strong{
+    color:#7dd3fc;
+}
+
+.compare-number{
+    color:#a7f3d0;
+    font-size:1.7rem;
+    font-weight:bold;
+}
+
+.bar-track{
+    height:18px;
+    border-radius:20px;
+    overflow:hidden;
+    background:rgba(255,255,255,.10);
+}
+
+.bar{
+    height:100%;
+    border-radius:20px;
+    background:linear-gradient(
+        90deg,
+        rgba(125,211,252,.9),
+        rgba(167,243,208,.9)
+    );
+}
+
+.forecast-bar{
+    width:26%;
+}
+
+.actual-bar{
+    width:100%;
+}
+
+.comparison-result{
+    margin-top:18px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.comparison-stat{
+    text-align:center;
+    padding:15px 10px;
+    background:rgba(255,255,255,.07);
+    border-radius:13px;
+}
+
+.comparison-stat strong{
+    display:block;
+    color:#a7f3d0;
+    font-size:1.25rem;
+}
+
+.comparison-stat span{
+    color:#cbd5e1;
+    font-size:.82rem;
+}
+
+
+/* =========================================================
+   EXPECTED VS ACTUAL INFLOW
+========================================================= */
+
+.inflow-table{
+    margin-top:20px;
+    overflow:hidden;
+    border-radius:15px;
+    background:rgba(10,37,64,.35);
+}
+
+.inflow-row{
+    display:grid;
+    grid-template-columns:1.2fr 1fr 1fr;
+    gap:10px;
+    padding:12px 16px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.inflow-row:last-child{
+    border-bottom:none;
+}
+
+.inflow-row.header{
+    color:#7dd3fc;
+    font-weight:bold;
+    background:rgba(255,255,255,.06);
+}
+
+.inflow-row.total{
+    font-weight:bold;
+    background:rgba(16,185,129,.10);
+}
+
+.forecast-value{
+    color:#7dd3fc;
+}
+
+.actual-value{
+    color:#a7f3d0;
+}
+
+
+/* =========================================================
+   TANK VOLUME BEFORE / AFTER
+========================================================= */
+
+.tank-volume-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-top:20px;
+}
+
+.tank-volume-card{
+    padding:18px;
+    text-align:center;
+    border-radius:16px;
+    background:rgba(10,37,64,.43);
+}
+
+.tank-volume-card h3{
+    color:#7dd3fc;
+    margin-bottom:12px;
+}
+
+.volume-number{
+    font-size:1.25rem;
+    font-weight:bold;
+}
+
+.before{
+    color:#e2e8f0;
+}
+
+.after{
+    color:#a7f3d0;
+}
+
+.volume-arrow{
+    color:#7dd3fc;
+    font-size:1.3rem;
+    margin:4px 0;
+}
+
+.delta{
+    margin-top:8px;
+    font-size:.82rem;
+    color:#cbd5e1;
+}
+
+
+/* =========================================================
+   TRANSFER GRAPHIC
+========================================================= */
+
+.transfer{
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
+    flex-wrap:wrap;
+    padding:20px;
+    background:rgba(255,255,255,.06);
+    border-radius:16px;
+}
+
+.transfer-tank{
+    min-width:150px;
+    padding:15px 20px;
+    text-align:center;
+    border-radius:14px;
+    background:rgba(10,37,64,.5);
+    font-weight:bold;
+    color:#7dd3fc;
+}
+
+.transfer-middle{
+    text-align:center;
+    color:#a7f3d0;
+    font-weight:bold;
+}
+
+.transfer-middle span{
+    display:block;
+    color:#7dd3fc;
+    font-size:1.8rem;
+}
+
+
+/* =========================================================
+   HIGHLIGHT
+========================================================= */
+
+.highlight{
+    margin-top:18px;
+    padding:18px;
+    border-radius:14px;
+    background:rgba(16,185,129,.14);
+    border:1px solid rgba(167,243,208,.28);
+}
+
+.highlight strong{
+    color:#a7f3d0;
+}
+
+.highlight ul{
+    padding-left:20px;
+    margin-top:6px;
+}
+
+
+/* =========================================================
+   LEARNING
+========================================================= */
+
+.learning-flow{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:18px;
+}
+
+.learning-flow span{
+    padding:8px 11px;
+    border-radius:9px;
+    background:rgba(255,255,255,.08);
+    font-size:.88rem;
+}
+
+.learning-flow b{
+    color:#7dd3fc;
+}
+
+
+/* =========================================================
+   NEXT STEP
+========================================================= */
+
+.next{
+    background:rgba(16,185,129,.13);
+}
+
+.inventory{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-top:18px;
+}
+
+.inventory-item{
+    text-align:center;
+    padding:18px 12px;
+    border-radius:15px;
+    background:rgba(255,255,255,.08);
+}
+
+.inventory-item .icon{
+    font-size:1.8rem;
+    display:block;
+}
+
+.inventory-item strong{
+    color:#a7f3d0;
+    display:block;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    text-align:center;
+    padding:45px;
+    color:#cbd5e1;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:900px){
+
+    .event-grid,
+    .tank-volume-grid,
+    .inventory{
+        grid-template-columns:1fr 1fr;
     }
 
-    body{
-        font-family:Arial, Helvetica, sans-serif;
-        background:linear-gradient(135deg,#0a2540,#0e7490,#10b981);
-        color:white;
-        line-height:1.7;
+    .compare-grid{
+        grid-template-columns:1fr;
     }
 
-    header{
-        text-align:center;
-        padding:80px 20px;
-        position:relative;
+    .event-card::after{
+        display:none;
     }
+
+}
+
+@media(max-width:600px){
 
     header h1{
-        font-size:3rem;
-        margin-bottom:15px;
-    }
-
-    header p{
-        max-width:900px;
-        margin:auto;
-        font-size:1.2rem;
-    }
-
-    nav{
-        margin-top:20px;
-        display:flex;
-        justify-content:center;
-        gap:20px;
-        flex-wrap:wrap;
-        padding:10px 0;
-    }
-
-    nav a{
-        text-decoration:none;
-        color:white;
-        font-weight:600;
-        padding:8px 14px;
-        border-radius:10px;
-        transition:0.3s;
-        background:rgba(255,255,255,0.15);
-        backdrop-filter:blur(6px);
-    }
-
-    nav a:hover{
-        background:white;
-        color:#0a2540;
-        transform:translateY(-2px);
-    }
-
-    .hero{
-        width:90%;
-        max-width:1400px;
-        height:450px;
-        margin:40px auto;
-        border-radius:20px;
-        overflow:hidden;
-        box-shadow:0 10px 40px rgba(0,0,0,.4);
-    }
-
-    .hero img{
-        width:100%;
-        height:100%;
-        object-fit:cover;
-    }
-
-    .container{
-        width:90%;
-        max-width:1200px;
-        margin:auto;
+        font-size:2.2rem;
     }
 
     .section{
-        background:rgba(255,255,255,.08);
-        backdrop-filter:blur(10px);
-        padding:40px;
-        margin-bottom:30px;
-        border-radius:20px;
+        padding:23px;
     }
 
-    h2{
-        color:#7dd3fc;
-        margin-bottom:20px;
+    .event-grid,
+    .tank-volume-grid,
+    .inventory,
+    .comparison-result{
+        grid-template-columns:1fr;
     }
 
-    .cards{
-        display:grid;
-        grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-        gap:25px;
+    .inflow-row{
+        grid-template-columns:1fr 1fr 1fr;
+        font-size:.82rem;
     }
 
-    .card{
-        background:rgba(255,255,255,.08);
-        padding:30px;
-        border-radius:20px;
-        transition:0.3s;
-    }
-
-    .card:hover{
-        transform:translateY(-8px);
-    }
-
-    footer{
-        text-align:center;
-        padding:50px;
-        color:#cbd5e1;
-    }
-
-    @media(max-width:768px){
-
-        header h1{
-            font-size:2.3rem;
-        }
-
-        .hero{
-            height:280px;
-        }
-
-        .section{
-            padding:25px;
-        }
-    }
+}
 
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
 <header>
 
-    <h1>Results</h1>
+<h1>Results</h1>
 
-    <p>
-        Monitoring results, system performance and scientific findings
-        from the Blue Green Yard living laboratory for climate-resilient
-        rainwater management.
-    </p>
+<p>
+Monitoring results and system performance
+from the Blue Green Yard living laboratory.
+</p>
 
-    <nav>
-        <a href="index.html">Start</a>
-        <a href="technical.html">Technical Concept</a>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="ai.html">AI</a>
-        <a href="results.html">Results</a>
-        <a href="media.html">Media</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+<nav>
+
+<a href="index.html">Start</a>
+<a href="technical.html">Technical Concept</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="ai.html">AI</a>
+<a href="results.html">Results</a>
+<a href="media.html">Media</a>
+<a href="contact.html">Contact</a>
+
+</nav>
 
 </header>
 
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
 <div class="hero">
-    <img src="images/results.jpg" alt="Project Results">
+
+<img
+    src="images/results.jpg"
+    alt="Blue Green Yard project results"
+>
+
 </div>
+
+
 
 <div class="container">
 
-    <div class="section">
 
-        <h2>Project Outcomes</h2>
+<!-- =========================================================
+     TABS
+========================================================= -->
 
-        <p>
-            Continuous monitoring of the Blue Green Yard provides valuable
-            insights into the performance of integrated rainwater harvesting,
-            treatment and reuse systems. The collected data support scientific
-            research and demonstrate the practical potential of blue-green
-            infrastructure under real operating conditions.
-        </p>
+<div class="result-tabs">
 
-    </div>
+<button
+    type="button"
+    class="result-tab-button active"
+    data-tab="overview">
+    Overview
+</button>
 
-    <div class="section">
-
-        <h2>Key Achievements</h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>Stormwater Retention</h3>
-
-                <p>
-                    Significant reduction of stormwater runoff through
-                    decentralized storage and intelligent management
-                    strategies.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Water Reuse</h3>
-
-                <p>
-                    Increased substitution of potable water by harvested
-                    rainwater for irrigation and other non-potable
-                    applications.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Water Quality</h3>
-
-                <p>
-                    Stable treatment performance ensuring high water
-                    quality for sustainable reuse under varying
-                    environmental conditions.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Energy Efficiency</h3>
-
-                <p>
-                    Optimized system operation resulting in lower energy
-                    consumption and improved overall resource efficiency.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="section">
-
-        <h2>Monitoring Results</h2>
-
-        <p>
-            Sensor data collected from the Blue Green Yard include rainfall,
-            inflow and outflow rates, storage volumes, water quality
-            parameters, environmental conditions and energy consumption.
-            These datasets form the basis for scientific evaluation and
-            future optimization of blue-green infrastructure systems.
-        </p>
-
-    </div>
-
-    <div class="section">
-
-        <h2>Scientific Impact</h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>Publications</h3>
-
-                <p>
-                    Research findings contribute to international
-                    scientific publications and conference presentations
-                    in urban water management.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Technology Transfer</h3>
-
-                <p>
-                    Practical experience supports the transfer of
-                    innovative solutions into municipalities, utilities
-                    and industry.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Decision Support</h3>
-
-                <p>
-                    Monitoring results provide evidence-based guidance
-                    for planners, operators and public authorities.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Future Developments</h3>
-
-                <p>
-                    The generated knowledge forms the basis for future
-                    smart water infrastructure and climate adaptation
-                    projects.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="section">
-
-        <h2>Future Perspectives</h2>
-
-        <p>
-            The results obtained from the Blue Green Yard demonstrate the
-            feasibility and benefits of combining decentralized water
-            management, digital monitoring and artificial intelligence.
-            The developed concepts provide a scalable framework for future
-            climate-resilient urban infrastructure and sustainable water
-            resource management.
-        </p>
-
-    </div>
+<button
+    type="button"
+    class="result-tab-button"
+    data-tab="rainwater">
+    Rainwater Management
+</button>
 
 </div>
 
+
+
+<!-- =========================================================
+     OVERVIEW TAB
+========================================================= -->
+
+<div
+    id="overview"
+    class="result-tab-content active"
+>
+
+
+<section class="section">
+
+<h2>Project Outcomes</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Stormwater Retention</h3>
+<ul>
+<li>Decentralized storage</li>
+<li>Reduced runoff</li>
+<li>Adaptive operation</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Water Reuse</h3>
+<ul>
+<li>Harvested rainwater</li>
+<li>Reduced potable water demand</li>
+<li>Sustainable reuse</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Water Quality</h3>
+<ul>
+<li>Treatment monitoring</li>
+<li>Quality assessment</li>
+<li>Reuse evaluation</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Digital Operation</h3>
+<ul>
+<li>Sensor monitoring</li>
+<li>Automatic control</li>
+<li>Data-based optimization</li>
+</ul>
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<h2>Monitoring Results</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Rainfall</h3>
+<ul>
+<li>Weather stations</li>
+<li>Rain events</li>
+<li>Forecast comparison</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Storage</h3>
+<ul>
+<li>Tank levels</li>
+<li>Available capacity</li>
+<li>Water transfers</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Water Quality</h3>
+<ul>
+<li>Quality parameters</li>
+<li>Treatment performance</li>
+<li>Future optimization</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>System Operation</h3>
+<ul>
+<li>Pumps</li>
+<li>Valves</li>
+<li>Automatic actions</li>
+</ul>
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<h2>Scientific Impact</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Research</h3>
+<ul>
+<li>Real operating conditions</li>
+<li>Long-term monitoring</li>
+<li>System evaluation</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Technology Transfer</h3>
+<ul>
+<li>Scalable concepts</li>
+<li>Municipal applications</li>
+<li>Blue-green infrastructure</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Decision Support</h3>
+<ul>
+<li>Measured data</li>
+<li>Operational experience</li>
+<li>Planning support</li>
+</ul>
+</div>
+
+</div>
+
+</section>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     RAINWATER TAB
+========================================================= -->
+
+<div
+    id="rainwater"
+    class="result-tab-content"
+>
+
+
+<!-- =========================================================
+     IMPLEMENTED
+========================================================= -->
+
+<section class="section">
+
+<h2>Rainwater Management Results</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🌦️ Forecast-Based</h3>
+<ul>
+<li>Open-Meteo</li>
+<li>1-hour forecast</li>
+<li>Storage prediction</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>🧠 Self-Learning</h3>
+<ul>
+<li>Rain events evaluated</li>
+<li>Tank response measured</li>
+<li>L/mm factors adapted</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>⚙️ Automatic</h3>
+<ul>
+<li>Pump control</li>
+<li>Valve control</li>
+<li>Automatic transfers</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>🛡️ Protected</h3>
+<ul>
+<li>Overflow protection</li>
+<li>Minimum levels</li>
+<li>Runtime fallback</li>
+</ul>
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     EVENT
+========================================================= -->
+
+<section class="section">
+
+<h2>Rain Event – 19 Aug 2026</h2>
+
+
+<div class="event-grid">
+
+
+<div class="event-card">
+
+<div class="event-icon">
+🌦️
+</div>
+
+<div class="event-label">
+Forecast
+</div>
+
+<div class="event-value">
+0.80 mm
+</div>
+
+<div class="event-small">
+≈ 6.76 L expected
+</div>
+
+</div>
+
+
+
+<div class="event-card">
+
+<div class="event-icon">
+🧠
+</div>
+
+<div class="event-label">
+Decision
+</div>
+
+<div class="event-value">
+10:54
+</div>
+
+<div class="event-small">
+Storage reserve required
+</div>
+
+</div>
+
+
+
+<div class="event-card">
+
+<div class="event-icon">
+⚙️
+</div>
+
+<div class="event-label">
+Automatic Response
+</div>
+
+<div class="event-value">
+3.49 L
+</div>
+
+<div class="event-small">
+Tank 3 → Tank 4
+</div>
+
+</div>
+
+
+
+<div class="event-card">
+
+<div class="event-icon">
+🌧️
+</div>
+
+<div class="event-label">
+Measured Rain
+</div>
+
+<div class="event-value">
+3.07 mm
+</div>
+
+<div class="event-small">
+≈ 25.95 L calculated inflow
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FORECAST VS REAL
+========================================================= -->
+
+<section class="section">
+
+<h2>Forecast vs. Measured Rain</h2>
+
+
+<div class="compare-grid">
+
+
+<div class="compare-card">
+
+<div class="compare-head">
+
+<strong>Forecast</strong>
+
+<div class="compare-number">
+0.80 mm
+</div>
+
+</div>
+
+<div class="bar-track">
+<div class="bar forecast-bar"></div>
+</div>
+
+</div>
+
+
+
+<div class="compare-card">
+
+<div class="compare-head">
+
+<strong>Measured</strong>
+
+<div class="compare-number">
+3.07 mm
+</div>
+
+</div>
+
+<div class="bar-track">
+<div class="bar actual-bar"></div>
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<div class="comparison-result">
+
+
+<div class="comparison-stat">
+
+<strong>+2.27 mm</strong>
+
+<span>
+More rain than forecast
+</span>
+
+</div>
+
+
+<div class="comparison-stat">
+
+<strong>3.84 ×</strong>
+
+<span>
+Forecast rainfall
+</span>
+
+</div>
+
+
+<div class="comparison-stat">
+
+<strong>+19.19 L</strong>
+
+<span>
+Additional calculated inflow
+</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     INFLOW COMPARISON
+========================================================= -->
+
+<section class="section">
+
+<h2>Expected vs. Calculated Inflow</h2>
+
+
+<div class="inflow-table">
+
+
+<div class="inflow-row header">
+
+<div>Tank</div>
+<div>Forecast</div>
+<div>Measured Rain</div>
+
+</div>
+
+
+<div class="inflow-row">
+
+<div>Tank 1</div>
+<div class="forecast-value">3.05 L</div>
+<div class="actual-value">11.72 L</div>
+
+</div>
+
+
+<div class="inflow-row">
+
+<div>Tank 2</div>
+<div class="forecast-value">0.70 L</div>
+<div class="actual-value">2.70 L</div>
+
+</div>
+
+
+<div class="inflow-row">
+
+<div>Tank 3</div>
+<div class="forecast-value">2.74 L</div>
+<div class="actual-value">10.53 L</div>
+
+</div>
+
+
+<div class="inflow-row">
+
+<div>Tank 4</div>
+<div class="forecast-value">0.26 L</div>
+<div class="actual-value">1.00 L</div>
+
+</div>
+
+
+<div class="inflow-row total">
+
+<div>Total</div>
+<div class="forecast-value">6.76 L</div>
+<div class="actual-value">25.95 L</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     TANK VOLUMES
+========================================================= -->
+
+<section class="section">
+
+<h2>Tank Volumes – Before & After</h2>
+
+
+<div class="tank-volume-grid">
+
+
+<div class="tank-volume-card">
+
+<h3>Tank 1</h3>
+
+<div class="volume-number before">
+262.94 L
+</div>
+
+<div class="volume-arrow">
+↓
+</div>
+
+<div class="volume-number after">
+265.33 L
+</div>
+
+<div class="delta">
++2.40 L
+</div>
+
+</div>
+
+
+
+<div class="tank-volume-card">
+
+<h3>Tank 2</h3>
+
+<div class="volume-number before">
+73.13 L
+</div>
+
+<div class="volume-arrow">
+↓
+</div>
+
+<div class="volume-number after">
+73.13 L
+</div>
+
+<div class="delta">
+±0.00 L
+</div>
+
+</div>
+
+
+
+<div class="tank-volume-card">
+
+<h3>Tank 3</h3>
+
+<div class="volume-number before">
+280.12 L
+</div>
+
+<div class="volume-arrow">
+↓
+</div>
+
+<div class="volume-number after">
+271.73 L
+</div>
+
+<div class="delta">
+−8.39 L
+</div>
+
+</div>
+
+
+
+<div class="tank-volume-card">
+
+<h3>Tank 4</h3>
+
+<div class="volume-number before">
+169.03 L
+</div>
+
+<div class="volume-arrow">
+↓
+</div>
+
+<div class="volume-number after">
+180.22 L
+</div>
+
+<div class="delta">
++11.19 L
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<div class="transfer">
+
+<div class="transfer-tank">
+Tank 3
+</div>
+
+<div class="transfer-middle">
+
+3.49 L
+
+<span>→</span>
+
+Automatic Transfer
+
+</div>
+
+<div class="transfer-tank">
+Tank 4
+</div>
+
+</div>
+
+
+
+<div class="highlight">
+
+<strong>System response</strong>
+
+<ul>
+<li>Forecast: 0.80 mm</li>
+<li>Additional storage required in Tank 3</li>
+<li>3.49 L automatically transferred to Tank 4</li>
+<li>Measured rain: 3.07 mm</li>
+<li>Rainfall was considerably higher than forecast</li>
+</ul>
+
+</div>
+
+
+<div class="learning-flow">
+
+<span>Forecast</span>
+
+<b>→</b>
+
+<span>Storage Decision</span>
+
+<b>→</b>
+
+<span>Automatic Transfer</span>
+
+<b>→</b>
+
+<span>Measured Rain</span>
+
+<b>→</b>
+
+<span>Tank Response</span>
+
+<b>→</b>
+
+<span>Learning</span>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     NEXT STEP
+========================================================= -->
+
+<section class="section next">
+
+<h2>Next Step: Rainwater Inventory</h2>
+
+
+<div class="inventory">
+
+
+<div class="inventory-item">
+
+<span class="icon">
+💧
+</span>
+
+<strong>
+Quantity
+</strong>
+
+Stored volume
+
+</div>
+
+
+<div class="inventory-item">
+
+<span class="icon">
+⏱️
+</span>
+
+<strong>
+Water Age
+</strong>
+
+Storage duration
+
+</div>
+
+
+<div class="inventory-item">
+
+<span class="icon">
+🔬
+</span>
+
+<strong>
+Water Quality
+</strong>
+
+Quality parameters
+
+</div>
+
+
+<div class="inventory-item">
+
+<span class="icon">
+🌧️
+</span>
+
+<strong>
+Forecast
+</strong>
+
+Expected fresh rainwater
+
+</div>
+
+
+</div>
+
+
+
+<div class="highlight">
+
+<strong>
+Future Rainwater Inventory
+</strong>
+
+<ul>
+<li>Quantity</li>
+<li>Water age</li>
+<li>Water quality</li>
+<li>Rain forecast</li>
+<li>Decision: Keep · Transfer · Use · Replace</li>
+</ul>
+
+</div>
+
+</section>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
 <footer>
-    © 2026 | Blue Green Yard AI
+
+© 2026 | Blue Green Yard AI
+
 </footer>
 
+
+
+<!-- =========================================================
+     TAB SCRIPT
+========================================================= -->
+
+<script>
+
+const tabButtons =
+    document.querySelectorAll(".result-tab-button");
+
+const tabContents =
+    document.querySelectorAll(".result-tab-content");
+
+
+tabButtons.forEach(function(button){
+
+    button.addEventListener("click",function(){
+
+        const tabId =
+            button.getAttribute("data-tab");
+
+
+        tabButtons.forEach(function(btn){
+            btn.classList.remove("active");
+        });
+
+
+        tabContents.forEach(function(content){
+            content.classList.remove("active");
+        });
+
+
+        button.classList.add("active");
+
+
+        const selectedTab =
+            document.getElementById(tabId);
+
+
+        if(selectedTab){
+            selectedTab.classList.add("active");
+        }
+
+    });
+
+});
+
+</script>
+
+
 </body>
+
 </html>
