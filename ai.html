@@ -1,320 +1,922 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>AI-based Solutions | Blue Green Yard</title>
 
 <style>
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
+
+/* =========================================================
+   BASIC
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(135deg,#0a2540,#0e7490,#10b981);
+    color:white;
+    line-height:1.65;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+    text-align:center;
+    padding:70px 20px 40px;
+}
+
+header h1{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+header p{
+    max-width:900px;
+    margin:auto;
+    font-size:1.15rem;
+    color:#e2e8f0;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav{
+    margin-top:22px;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    padding:8px 14px;
+    border-radius:10px;
+    transition:.3s;
+    background:rgba(255,255,255,0.15);
+}
+
+nav a:hover{
+    background:white;
+    color:#0a2540;
+    transform:translateY(-2px);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    width:90%;
+    max-width:1400px;
+    margin:20px auto 35px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 40px rgba(0,0,0,.35);
+}
+
+.hero img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.section{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(10px);
+    padding:35px;
+    margin-bottom:25px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+h2{
+    color:#7dd3fc;
+    margin-bottom:18px;
+}
+
+h3{
+    margin-bottom:7px;
+}
+
+p{
+    color:#f1f5f9;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+}
+
+.card{
+    background:rgba(255,255,255,.08);
+    padding:22px;
+    border-radius:17px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    background:rgba(255,255,255,.11);
+}
+
+.card h3{
+    color:#a7f3d0;
+}
+
+.card p{
+    font-size:.93rem;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status{
+    display:inline-block;
+    padding:4px 10px;
+    border-radius:20px;
+    font-size:.75rem;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.implemented{
+    background:rgba(16,185,129,.22);
+    color:#d1fae5;
+}
+
+.planned{
+    background:rgba(125,211,252,.17);
+    color:#e0f2fe;
+}
+
+
+/* =========================================================
+   PROCESS FLOW
+========================================================= */
+
+.process{
+    margin-top:22px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.process span{
+    padding:9px 12px;
+    border-radius:10px;
+    background:rgba(10,37,64,.45);
+    text-align:center;
+}
+
+.process b{
+    color:#7dd3fc;
+}
+
+
+/* =========================================================
+   LEARNING LOOP
+========================================================= */
+
+.learning-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-top:22px;
+}
+
+.learning-step{
+    text-align:center;
+    background:rgba(255,255,255,.08);
+    padding:20px 15px;
+    border-radius:16px;
+}
+
+.learning-step .icon{
+    display:block;
+    font-size:2rem;
+    margin-bottom:6px;
+}
+
+.learning-step strong{
+    color:#7dd3fc;
+    display:block;
+}
+
+.learning-step .value{
+    color:#a7f3d0;
+    font-weight:bold;
+    margin-top:5px;
+}
+
+
+/* =========================================================
+   AI TYPE TABLE
+========================================================= */
+
+.ai-table{
+    margin-top:20px;
+    overflow:hidden;
+    border-radius:15px;
+    background:rgba(10,37,64,.38);
+}
+
+.ai-row{
+    display:grid;
+    grid-template-columns:1.1fr 1.1fr 1.6fr;
+    gap:15px;
+    padding:14px 16px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.ai-row:last-child{
+    border-bottom:none;
+}
+
+.ai-row.header{
+    color:#7dd3fc;
+    font-weight:bold;
+    background:rgba(255,255,255,.06);
+}
+
+.ai-method{
+    color:#a7f3d0;
+    font-weight:bold;
+}
+
+
+/* =========================================================
+   HIGHLIGHT
+========================================================= */
+
+.highlight{
+    margin-top:20px;
+    padding:18px;
+    border-radius:14px;
+    background:rgba(16,185,129,.14);
+    border:1px solid rgba(167,243,208,.28);
+}
+
+.highlight strong{
+    color:#a7f3d0;
+}
+
+
+/* =========================================================
+   DECISION
+========================================================= */
+
+.decision{
+    margin-top:20px;
+    padding:20px;
+    border-radius:16px;
+    background:rgba(10,37,64,.43);
+}
+
+.decision-title{
+    text-align:center;
+    color:#a7f3d0;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.decision-flow{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.decision-flow span{
+    padding:9px 12px;
+    border-radius:9px;
+    background:rgba(255,255,255,.08);
+}
+
+.decision-flow b{
+    color:#7dd3fc;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    text-align:center;
+    padding:45px;
+    color:#cbd5e1;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:900px){
+
+    .learning-grid{
+        grid-template-columns:1fr 1fr;
     }
 
-    body{
-        font-family:Arial, Helvetica, sans-serif;
-        background:linear-gradient(135deg,#0a2540,#0e7490,#10b981);
-        color:white;
-        line-height:1.7;
+    .ai-row{
+        grid-template-columns:1fr;
+        gap:4px;
     }
 
-    header{
-        text-align:center;
-        padding:80px 20px;
-        position:relative;
+    .ai-row.header{
+        display:none;
     }
+
+}
+
+@media(max-width:600px){
 
     header h1{
-        font-size:3rem;
-        margin-bottom:15px;
-    }
-
-    header p{
-        max-width:900px;
-        margin:auto;
-        font-size:1.2rem;
-    }
-
-    nav{
-        margin-top:20px;
-        display:flex;
-        justify-content:center;
-        gap:20px;
-        flex-wrap:wrap;
-        padding:10px 0;
-    }
-
-    nav a{
-        text-decoration:none;
-        color:white;
-        font-weight:600;
-        padding:8px 14px;
-        border-radius:10px;
-        transition:0.3s;
-        background:rgba(255,255,255,0.15);
-        backdrop-filter:blur(6px);
-    }
-
-    nav a:hover{
-        background:white;
-        color:#0a2540;
-        transform:translateY(-2px);
-    }
-
-    .hero{
-        width:90%;
-        max-width:1400px;
-        height:450px;
-        margin:40px auto;
-        border-radius:20px;
-        overflow:hidden;
-        box-shadow:0 10px 40px rgba(0,0,0,.4);
-    }
-
-    .hero img{
-        width:100%;
-        height:100%;
-        object-fit:cover;
-    }
-
-    .container{
-        width:90%;
-        max-width:1200px;
-        margin:auto;
+        font-size:2.2rem;
     }
 
     .section{
-        background:rgba(255,255,255,.08);
-        backdrop-filter:blur(10px);
-        padding:40px;
-        margin-bottom:30px;
-        border-radius:20px;
+        padding:24px;
     }
 
-    h2{
-        color:#7dd3fc;
-        margin-bottom:20px;
+    .learning-grid{
+        grid-template-columns:1fr;
     }
 
-    .cards{
-        display:grid;
-        grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-        gap:25px;
-    }
-
-    .card{
-        background:rgba(255,255,255,.08);
-        padding:30px;
-        border-radius:20px;
-        transition:.3s;
-    }
-
-    .card:hover{
-        transform:translateY(-8px);
-    }
-
-    footer{
-        text-align:center;
-        padding:50px;
-        color:#cbd5e1;
-    }
-
-    @media(max-width:768px){
-
-        header h1{
-            font-size:2.3rem;
-        }
-
-        .hero{
-            height:280px;
-        }
-
-        .section{
-            padding:25px;
-        }
-
-    }
+}
 
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
 <header>
 
-    <h1>AI-based Solutions</h1>
+<h1>AI-based Solutions</h1>
 
-    <p>
-        Artificial Intelligence for smart rainwater management,
-        predictive operation, digital twins and decision support
-        in climate-resilient blue-green infrastructure.
-    </p>
+<p>
+Adaptive learning and future AI-supported decision making
+for intelligent rainwater management in the Blue Green Yard.
+</p>
 
-    <nav>
-        <a href="index.html">Start</a>
-        <a href="technical.html">Technical Concept</a>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="ai.html">AI</a>
-        <a href="results.html">Results</a>
-        <a href="media.html">Media</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+<nav>
+
+<a href="index.html">Start</a>
+<a href="technical.html">Technical Concept</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="ai.html">AI</a>
+<a href="results.html">Results</a>
+<a href="media.html">Media</a>
+<a href="contact.html">Contact</a>
+
+</nav>
 
 </header>
 
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
 <div class="hero">
-    <img src="images/ai.jpg" alt="Artificial Intelligence">
+
+<img
+    src="images/ai.jpg"
+    alt="Artificial Intelligence and smart water management"
+>
+
 </div>
+
+
 
 <div class="container">
 
-    <div class="section">
 
-        <h2>Artificial Intelligence Framework</h2>
+<!-- =========================================================
+     AI FRAMEWORK
+========================================================= -->
 
-        <p>
-            The Blue Green Yard combines real-time monitoring,
-            environmental sensing and artificial intelligence
-            to optimize rainwater harvesting, storage, treatment
-            and reuse. Machine learning models continuously analyze
-            incoming data streams and support adaptive operation
-            under changing climatic conditions.
-        </p>
+<section class="section">
 
-    </div>
+<h2>AI Approach</h2>
 
-    <div class="section">
+<p>
+The Blue Green Yard follows a hybrid approach:
+sensor measurements and weather forecasts are combined
+with transparent learning algorithms, rule-based safety logic
+and future machine-learning models.
+</p>
 
-        <h2>AI Applications</h2>
 
-        <div class="cards">
+<div class="process">
 
-            <div class="card">
-                <h3>Rainfall Prediction</h3>
-
-                <p>
-                    AI models combine weather forecasts and historical
-                    precipitation data to predict rainfall events and
-                    optimize storage capacity before storms occur.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Smart Control</h3>
-
-                <p>
-                    Intelligent algorithms automatically control pumps,
-                    valves and treatment units to maximize efficiency,
-                    reduce energy demand and improve water availability.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Anomaly Detection</h3>
-
-                <p>
-                    Machine learning identifies sensor failures,
-                    leakages and abnormal operational conditions
-                    before they become critical.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Demand Forecasting</h3>
-
-                <p>
-                    Predictive models estimate future water demand
-                    for irrigation and other reuse applications,
-                    enabling proactive system management.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="section">
-
-        <h2>Digital Twin</h2>
-
-        <p>
-            A continuously updated digital twin mirrors the physical
-            Blue Green Yard. By integrating sensor data, weather forecasts
-            and hydraulic simulations, it enables scenario analysis,
-            operational planning and long-term system optimization.
-        </p>
-
-    </div>
-
-    <div class="section">
-
-        <h2>Machine Learning Modules</h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>Forecast Models</h3>
-
-                <p>
-                    Time-series prediction models estimate rainfall,
-                    storage levels and future system performance.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Optimization Algorithms</h3>
-
-                <p>
-                    AI continuously optimizes storage utilization,
-                    treatment processes and water distribution
-                    according to environmental conditions.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Decision Support</h3>
-
-                <p>
-                    Interactive dashboards provide recommendations
-                    for operators based on predictive analytics
-                    and explainable AI techniques.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Continuous Learning</h3>
-
-                <p>
-                    The AI system improves over time by incorporating
-                    newly collected monitoring data and operational
-                    feedback into the learning process.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="section">
-
-        <h2>Research Objectives</h2>
-
-        <p>
-            The AI-based framework contributes to resilient urban water
-            management by increasing resource efficiency, reducing operational
-            costs and supporting sustainable climate adaptation strategies.
-            The developed methods are transferable to future smart cities,
-            water utilities and blue-green infrastructure projects worldwide.
-        </p>
-
-    </div>
+<span>Sensor Data</span>
+<b>+</b>
+<span>Weather Forecast</span>
+<b>+</b>
+<span>Historical Events</span>
+<b>→</b>
+<span>Learning</span>
+<b>→</b>
+<span>Decision Support</span>
+<b>→</b>
+<span>Automatic Control</span>
 
 </div>
 
+
+<div class="highlight">
+
+<strong>Important principle:</strong><br>
+
+AI supports learning and optimization.
+Critical pump, valve and overflow functions remain protected
+by deterministic safety rules.
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CURRENT LEARNING
+========================================================= -->
+
+<section class="section">
+
+<h2>Already Implemented: Adaptive Inflow Learning</h2>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<span class="status implemented">
+IMPLEMENTED
+</span>
+
+<h3>Online Learning</h3>
+
+<p>
+The system learns continuously from new rain events
+instead of using permanently fixed rainfall-to-inflow factors.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<span class="status implemented">
+IMPLEMENTED
+</span>
+
+<h3>Tank-Specific Learning</h3>
+
+<p>
+Each of the four tanks has its own learned relationship
+between rainfall in millimetres and water inflow in litres.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<span class="status implemented">
+IMPLEMENTED
+</span>
+
+<h3>Robust Learning</h3>
+
+<p>
+Valid recent events are combined using a robust median
+to reduce the influence of individual sensor errors.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<span class="status implemented">
+IMPLEMENTED
+</span>
+
+<h3>Gradual Adaptation</h3>
+
+<p>
+New observations do not immediately replace the existing factor.
+The model is updated step by step.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     WHAT DOES IT LEARN?
+========================================================= -->
+
+<section class="section">
+
+<h2>What Does the System Learn?</h2>
+
+
+<div class="learning-grid">
+
+
+<div class="learning-step">
+
+<span class="icon">🌦️</span>
+
+<strong>1. Forecast</strong>
+
+<div class="value">
+Predicted rain
+</div>
+
+<p>
+How much rain is expected?
+</p>
+
+</div>
+
+
+
+<div class="learning-step">
+
+<span class="icon">🌧️</span>
+
+<strong>2. Real Rain</strong>
+
+<div class="value">
+Measured mm
+</div>
+
+<p>
+How much rain actually occurred?
+</p>
+
+</div>
+
+
+
+<div class="learning-step">
+
+<span class="icon">💧</span>
+
+<strong>3. Tank Response</strong>
+
+<div class="value">
+Volume change
+</div>
+
+<p>
+How many litres actually entered the tank?
+</p>
+
+</div>
+
+
+
+<div class="learning-step">
+
+<span class="icon">🧠</span>
+
+<strong>4. New Factor</strong>
+
+<div class="value">
+L/mm
+</div>
+
+<p>
+How much water reaches this tank per millimetre of rain?
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<div class="process">
+
+<span>Measured Rain</span>
+<b>+</b>
+<span>Tank Volume Increase</span>
+<b>→</b>
+<span>Observed L/mm</span>
+<b>→</b>
+<span>Robust Median</span>
+<b>→</b>
+<span>Gradual Update</span>
+
+</div>
+
+
+<div class="highlight">
+
+<strong>Learning rule:</strong><br>
+
+At least three valid rain events are required before the
+learned information is used.
+
+Very small events, implausible values and events with a tank
+already at 100 % are excluded from learning.
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CURRENT DECISION SYSTEM
+========================================================= -->
+
+<section class="section">
+
+<h2>From Learning to Automatic Management</h2>
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>🌦️ Forecast Input</h3>
+
+<p>
+• External Open-Meteo forecast<br>
+• Currently 1-hour horizon<br>
+• No own AI weather prediction required
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>🧮 Learned Inflow</h3>
+
+<p>
+• Rainfall converted to litres<br>
+• Individual L/mm per tank<br>
+• Factors improve with events
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>⚙️ Storage Decision</h3>
+
+<p>
+• Current tank volume<br>
+• Expected inflow<br>
+• Available storage capacity
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>🛡️ Safe Execution</h3>
+
+<p>
+• Fixed hydraulic routes<br>
+• Level-based stopping<br>
+• Overflow and minimum-level protection
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="decision">
+
+<div class="decision-title">
+Current Decision Logic
+</div>
+
+<div class="decision-flow">
+
+<span>Forecast</span>
+<b>×</b>
+<span>Learned L/mm</span>
+<b>→</b>
+<span>Expected Litres</span>
+<b>+</b>
+<span>Current Storage</span>
+<b>→</b>
+<span>Transfer Decision</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FUTURE RAINWATER INVENTORY
+========================================================= -->
+
+<section class="section">
+
+<h2>Next AI Step: Rainwater Inventory</h2>
+
+<p>
+Future rainwater management should no longer consider only
+water quantity. Water age and water quality can also become
+part of the management decision.
+</p>
+
+
+<div class="cards" style="margin-top:20px;">
+
+
+<div class="card">
+
+<span class="status planned">
+PLANNED
+</span>
+
+<h3>💧 Quantity Prediction</h3>
+
+<p>
+Estimate future storage levels from current volume,
+rain forecasts, learned inflow factors and water use.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<span class="status planned">
+PLANNED
+</span>
+
+<h3>⏱️ Water Age</h3>
+
+<p>
+Track how long water remains in each storage tank
+and include residence time in future decisions.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<span class="status planned">
+PLANNED
+</span>
+
+<h3>🔬 Quality Prediction</h3>
+
+<p>
+Learn relationships between sensor measurements,
+water age, weather and changes in water quality.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<span class="status planned">
+PLANNED
+</span>
+
+<h3>🧠 Management Decision</h3>
+
+<p>
+Combine quantity, age, quality and expected rainfall
+to determine which water should be retained,
+transferred, used or replaced.
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<div class="decision">
+
+<div class="decision-title">
+Future AI Decision
+</div>
+
+<div class="decision-flow">
+
+<span>Quantity</span>
+<b>+</b>
+<span>Water Age</span>
+<b>+</b>
+<span>Water Quality</span>
+<b>+</b>
+<span>Forecast</span>
+
+<b>→</b>
+
+<span>KEEP</span>
+<span>TRANSFER</span>
+<span>USE</span>
+<span>REPLACE</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
 <footer>
-    © 2026 | Blue Green Yard AI
+
+© 2026 | Blue Green Yard AI
+
 </footer>
 
+
 </body>
+
 </html>
