@@ -20,12 +20,21 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     font-family:Arial, Helvetica, sans-serif;
     background:linear-gradient(135deg,#0a2540,#0e7490,#10b981);
     color:white;
     line-height:1.65;
 }
+
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 header{
     text-align:center;
@@ -38,7 +47,7 @@ header h1{
 }
 
 header p{
-    max-width:850px;
+    max-width:900px;
     margin:auto;
     font-size:1.15rem;
     color:#e2e8f0;
@@ -70,6 +79,7 @@ nav a{
 nav a:hover{
     background:white;
     color:#0a2540;
+    transform:translateY(-2px);
 }
 
 
@@ -79,7 +89,7 @@ nav a:hover{
 
 .container{
     width:90%;
-    max-width:1200px;
+    max-width:1250px;
     margin:30px auto;
 }
 
@@ -92,25 +102,19 @@ nav a:hover{
     display:flex;
     justify-content:center;
     gap:12px;
-    margin-bottom:25px;
+    margin-bottom:28px;
     flex-wrap:wrap;
 }
 
 .tab-button{
     border:none;
     cursor:pointer;
-
     padding:12px 25px;
-
     border-radius:12px;
-
     background:rgba(255,255,255,0.12);
-
     color:white;
-
     font-size:1rem;
     font-weight:bold;
-
     transition:.3s;
 }
 
@@ -139,12 +143,10 @@ nav a:hover{
 .section{
     background:rgba(255,255,255,.08);
     backdrop-filter:blur(10px);
-
     padding:35px;
-
     margin-bottom:25px;
-
     border-radius:20px;
+    border:1px solid rgba(255,255,255,.08);
 }
 
 h2{
@@ -162,22 +164,20 @@ p{
 
 
 /* =========================================================
-   IMAGE
+   IMAGES
 ========================================================= */
 
-.tech-image{
+.tech-image,
+.cool-image{
     width:100%;
-
-    margin-bottom:25px;
-
+    margin:20px 0 25px;
     border-radius:18px;
-
     overflow:hidden;
-
     background:rgba(255,255,255,.08);
 }
 
-.tech-image img{
+.tech-image img,
+.cool-image img{
     width:100%;
     height:auto;
     display:block;
@@ -190,21 +190,20 @@ p{
 
 .cards{
     display:grid;
-
-    grid-template-columns:repeat(
-        auto-fit,
-        minmax(220px,1fr)
-    );
-
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:18px;
 }
 
 .card{
     background:rgba(255,255,255,.08);
-
     padding:22px;
-
     border-radius:17px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    background:rgba(255,255,255,.11);
 }
 
 .card h3{
@@ -215,6 +214,11 @@ p{
     font-size:.94rem;
 }
 
+.icon{
+    font-size:2rem;
+    margin-bottom:8px;
+}
+
 
 /* =========================================================
    PROCESS FLOW
@@ -222,24 +226,17 @@ p{
 
 .process{
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     flex-wrap:wrap;
-
     gap:9px;
-
     margin-top:22px;
 }
 
 .process span{
     padding:9px 13px;
-
     border-radius:10px;
-
     background:rgba(10,37,64,.45);
-
     text-align:center;
 }
 
@@ -254,15 +251,10 @@ p{
 
 .formula{
     margin-top:20px;
-
     padding:18px;
-
     border-radius:14px;
-
     text-align:center;
-
     background:rgba(10,37,64,.45);
-
     border-left:4px solid #7dd3fc;
 }
 
@@ -277,29 +269,21 @@ p{
 
 .tank-grid{
     display:grid;
-
     grid-template-columns:repeat(4,1fr);
-
     gap:12px;
-
     margin-top:18px;
 }
 
 .tank-value{
     padding:15px;
-
     text-align:center;
-
     border-radius:13px;
-
     background:rgba(10,37,64,.4);
 }
 
 .tank-value strong{
     display:block;
-
     color:#a7f3d0;
-
     font-size:1.15rem;
 }
 
@@ -308,19 +292,180 @@ p{
    HIGHLIGHT
 ========================================================= */
 
-.highlight{
+.highlight,
+.note{
     margin-top:20px;
-
     padding:18px;
-
     border-radius:14px;
-
     background:rgba(16,185,129,.14);
-
     border:1px solid rgba(167,243,208,.25);
 }
 
-.highlight strong{
+.highlight strong,
+.note strong{
+    color:#a7f3d0;
+}
+
+
+/* =========================================================
+   SENSOR SUMMARY
+========================================================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    gap:18px;
+    margin-top:22px;
+}
+
+.stat{
+    text-align:center;
+    background:rgba(255,255,255,.08);
+    padding:22px;
+    border-radius:17px;
+}
+
+.stat strong{
+    display:block;
+    font-size:1.9rem;
+    color:#a7f3d0;
+}
+
+.sensor-count{
+    margin-top:10px;
+    font-size:.88rem;
+    color:#bae6fd;
+}
+
+.sensor-count strong{
+    color:#bae6fd;
+}
+
+
+/* =========================================================
+   SENSOR IMAGES
+========================================================= */
+
+.images{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:18px;
+}
+
+.image-card{
+    overflow:hidden;
+    border-radius:18px;
+    background:rgba(255,255,255,.08);
+}
+
+.image-card img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+.image-card > div{
+    padding:18px;
+}
+
+
+/* =========================================================
+   SENSOR DATA FLOW
+========================================================= */
+
+.flow{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+}
+
+.flow-item{
+    padding:20px;
+    text-align:center;
+    border-radius:16px;
+    background:rgba(255,255,255,.08);
+}
+
+.flow-item span{
+    display:block;
+    font-size:2rem;
+    margin-bottom:8px;
+}
+
+
+/* =========================================================
+   SENSOR TABLE
+========================================================= */
+
+.table-wrapper{
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:.86rem;
+}
+
+th{
+    text-align:left;
+    color:#7dd3fc;
+    padding:12px;
+    border-bottom:2px solid rgba(255,255,255,.2);
+    white-space:nowrap;
+}
+
+td{
+    padding:11px 12px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+    vertical-align:top;
+}
+
+tr:hover{
+    background:rgba(255,255,255,.05);
+}
+
+.status{
+    display:inline-block;
+    padding:4px 9px;
+    border-radius:20px;
+    font-size:.76rem;
+    font-weight:bold;
+}
+
+.status-active{
+    color:#d1fae5;
+    background:rgba(16,185,129,.25);
+}
+
+.status-inactive{
+    color:#fee2e2;
+    background:rgba(239,68,68,.20);
+}
+
+
+/* =========================================================
+   COOLING
+========================================================= */
+
+.height-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:22px;
+}
+
+.height{
+    text-align:center;
+    padding:25px 15px;
+    border-radius:17px;
+    background:rgba(255,255,255,.08);
+}
+
+.height strong{
+    display:block;
+    font-size:1.8rem;
     color:#a7f3d0;
 }
 
@@ -331,9 +476,7 @@ p{
 
 footer{
     text-align:center;
-
     padding:45px;
-
     color:#cbd5e1;
 }
 
@@ -346,6 +489,10 @@ footer{
 
     .tank-grid{
         grid-template-columns:1fr 1fr;
+    }
+
+    .height-grid{
+        grid-template-columns:1fr;
     }
 
 }
@@ -383,8 +530,9 @@ footer{
 <h1>Technical Concept</h1>
 
 <p>
-Technical concepts for cooling and intelligent
-rainwater management in the Blue Green Yard.
+Technical concepts for intelligent rainwater management,
+sensor-based monitoring and water-supported cooling
+in the Blue Green Yard.
 </p>
 
 <nav>
@@ -407,23 +555,30 @@ rainwater management in the Blue Green Yard.
 
 
 <!-- =========================================================
-     TECHNICAL SUBTABS
+     SUBTABS
 ========================================================= -->
 
 <div class="tech-tabs">
 
 <button
+    type="button"
     class="tab-button active"
-    onclick="openTechTab('cooling',this)"
->
-Cooling System
+    data-tab="rainwater">
+    Rainwater Management
 </button>
 
 <button
+    type="button"
     class="tab-button"
-    onclick="openTechTab('rainwater',this)"
->
-Rainwater Management
+    data-tab="sensors">
+    Sensor Network
+</button>
+
+<button
+    type="button"
+    class="tab-button"
+    data-tab="cooling">
+    Cooling System
 </button>
 
 </div>
@@ -432,192 +587,12 @@ Rainwater Management
 
 <!-- =========================================================
      TAB 1
-     COOLING SYSTEM
-========================================================= -->
-
-<div
-    id="cooling"
-    class="tab-content active"
->
-
-
-<section class="section">
-
-<h2>Cooling Concept</h2>
-
-<p>
-The Blue Green Yard combines blue-green infrastructure
-with water-based cooling strategies to improve the
-microclimate and reduce heat stress.
-</p>
-
-</section>
-
-<div class="cool-image">
-
-<img
-    src="images/coolingelements.png"
-    alt="Blue Green Yard cooling concept"
->
-
-</div>
-
-
-
-
-
-<section class="section">
-
-<h2>Technical Components</h2>
-
-<div class="cards">
-
-
-<div class="card">
-
-<h3>Rainwater Supply</h3>
-
-<p>
-• Stored rainwater<br>
-• Resource-efficient use<br>
-• Reduced potable water demand
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>Cooling Elements</h3>
-
-<p>
-• Water-based cooling<br>
-• Blue-green infrastructure<br>
-• Local microclimate improvement
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>Sensor Network</h3>
-
-<p>
-• Environmental measurements<br>
-• Water system monitoring<br>
-• Operational data
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>Digital Monitoring</h3>
-
-<p>
-• Central data platform<br>
-• Visualization<br>
-• Performance analysis
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<section class="section">
-
-<h2>Cooling Principle</h2>
-
-<div class="process">
-
-<span>Rainwater Collection</span>
-
-<b>→</b>
-
-<span>Storage</span>
-
-<b>→</b>
-
-<span>Water Supply</span>
-
-<b>→</b>
-
-<span>Cooling Element</span>
-
-<b>→</b>
-
-<span>Microclimate Effect</span>
-
-</div>
-
-</section>
-
-
-
-<section class="section">
-
-<h2>Objectives</h2>
-
-<div class="cards">
-
-
-<div class="card">
-
-<h3>Heat Reduction</h3>
-
-<p>
-Improvement of local thermal conditions.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>Water Reuse</h3>
-
-<p>
-Use of harvested rainwater instead of potable water.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>Climate Adaptation</h3>
-
-<p>
-Combination of water management and urban cooling.
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-</div>
-
-
-
-<!-- =========================================================
-     TAB 2
      RAINWATER MANAGEMENT
 ========================================================= -->
 
 <div
     id="rainwater"
-    class="tab-content"
+    class="tab-content active"
 >
 
 
@@ -636,25 +611,20 @@ storage capacity before expected rain events.
 
 <img
     src="images/concept.jpg"
-    alt="Blue Green Yard Management Concept"
+    alt="Blue Green Yard rainwater management concept"
 >
 
 </div>
 
+
 <div class="process">
 
 <span>Weather Forecast</span>
-
 <b>→</b>
-
 <span>Expected Inflow</span>
-
 <b>→</b>
-
 <span>Storage Check</span>
-
 <b>→</b>
-
 <span>Automatic Action</span>
 
 </div>
@@ -663,9 +633,7 @@ storage capacity before expected rain events.
 
 
 
-<!-- =========================================================
-     SYSTEM INPUTS
-========================================================= -->
+<!-- SYSTEM INPUTS -->
 
 <section class="section">
 
@@ -676,7 +644,7 @@ storage capacity before expected rain events.
 
 <div class="card">
 
-<h3>Rain Forecast</h3>
+<h3>🌦️ Rain Forecast</h3>
 
 <p>
 • Open-Meteo<br>
@@ -689,11 +657,11 @@ storage capacity before expected rain events.
 
 <div class="card">
 
-<h3>Tank Levels</h3>
+<h3>💧 Tank Levels</h3>
 
 <p>
 • Current water volume<br>
-• Available capacity<br>
+• Available storage capacity<br>
 • Minimum / maximum levels
 </p>
 
@@ -702,7 +670,7 @@ storage capacity before expected rain events.
 
 <div class="card">
 
-<h3>System Status</h3>
+<h3>⚙️ System Status</h3>
 
 <p>
 • Pumps<br>
@@ -719,17 +687,15 @@ storage capacity before expected rain events.
 
 
 
-<!-- =========================================================
-     INFLOW CALCULATION
-========================================================= -->
+<!-- INFLOW -->
 
 <section class="section">
 
 <h2>Rainfall Inflow Calculation</h2>
 
 <p>
-Each roof area generates a different inflow.
-Therefore, every tank uses its own rainfall-to-volume factor.
+Different roof areas are connected to the four storage tanks.
+Each tank therefore uses an individual rainfall-to-volume factor.
 </p>
 
 
@@ -737,38 +703,23 @@ Therefore, every tank uses its own rainfall-to-volume factor.
 
 
 <div class="tank-value">
-
 <strong>3.817 L/mm</strong>
-
 Tank 1
-
 </div>
 
-
 <div class="tank-value">
-
 <strong>0.880 L/mm</strong>
-
 Tank 2
-
 </div>
 
-
 <div class="tank-value">
-
 <strong>3.431 L/mm</strong>
-
 Tank 3
-
 </div>
 
-
 <div class="tank-value">
-
 <strong>0.325 L/mm</strong>
-
 Tank 4
-
 </div>
 
 
@@ -779,12 +730,18 @@ Tank 4
 
 <strong>Expected inflow</strong>
 
-<br>
+<br><br>
 
 Rain forecast [mm]
 ×
 tank-specific factor [L/mm]
+
+<br>
+
 =
+
+<br>
+
 expected inflow [L]
 
 </div>
@@ -793,9 +750,7 @@ expected inflow [L]
 
 
 
-<!-- =========================================================
-     SELF LEARNING
-========================================================= -->
+<!-- SELF LEARNING -->
 
 <section class="section">
 
@@ -817,10 +772,10 @@ Actual rainfall is recorded by the weather station.
 
 <div class="card">
 
-<h3>2. Measure Tank Response</h3>
+<h3>2. Tank Response</h3>
 
 <p>
-The real increase in tank volume is determined.
+The actual change in tank volume is measured.
 </p>
 
 </div>
@@ -831,7 +786,7 @@ The real increase in tank volume is determined.
 <h3>3. Calculate L/mm</h3>
 
 <p>
-A new observed inflow factor is calculated.
+A new observed rainfall-to-inflow factor is determined.
 </p>
 
 </div>
@@ -842,7 +797,7 @@ A new observed inflow factor is calculated.
 <h3>4. Adapt</h3>
 
 <p>
-Recent valid events gradually update the inflow model.
+Valid events gradually improve the inflow model.
 </p>
 
 </div>
@@ -854,33 +809,25 @@ Recent valid events gradually update the inflow model.
 <div class="process">
 
 <span>Forecast</span>
-
 <b>→</b>
-
 <span>Rain Event</span>
-
 <b>→</b>
-
 <span>Measurement</span>
-
 <b>→</b>
-
 <span>Learning</span>
-
 <b>→</b>
-
-<span>Improved Forecast Calculation</span>
+<span>Improved Calculation</span>
 
 </div>
 
 
 <div class="highlight">
 
-<strong>Adaptive system:</strong>
+<strong>Adaptive system:</strong><br>
 
-The inflow factors are not permanently fixed.
-Valid rain events are evaluated and the model
-is gradually adapted to the real behaviour of the site.
+The factors are not permanently fixed.
+Measured rain events and actual tank responses
+are used to gradually adapt the model.
 
 </div>
 
@@ -888,9 +835,7 @@ is gradually adapted to the real behaviour of the site.
 
 
 
-<!-- =========================================================
-     AUTOMATIC CONTROL
-========================================================= -->
+<!-- AUTOMATIC -->
 
 <section class="section">
 
@@ -904,7 +849,7 @@ is gradually adapted to the real behaviour of the site.
 <h3>Forecast-Based Transfer</h3>
 
 <p>
-• Free storage before rain<br>
+• Free capacity before rain<br>
 • Only required volume moved
 </p>
 
@@ -918,7 +863,7 @@ is gradually adapted to the real behaviour of the site.
 <p>
 • Automatic refill<br>
 • Pump 1 + Valve 2<br>
-• CWH has priority
+• CWH priority
 </p>
 
 </div>
@@ -929,8 +874,8 @@ is gradually adapted to the real behaviour of the site.
 <h3>Overflow Protection</h3>
 
 <p>
-• Starts at ≥ 95 %<br>
-• Target approximately 80 %<br>
+• Start at ≥ 95 %<br>
+• Target ≈ 80 %<br>
 • Independent of forecast
 </p>
 
@@ -942,8 +887,8 @@ is gradually adapted to the real behaviour of the site.
 <h3>Sensor-Based Stop</h3>
 
 <p>
-• Tank level monitoring<br>
-• Runtime as fallback
+• Tank-level monitoring<br>
+• Runtime fallback
 </p>
 
 </div>
@@ -955,9 +900,7 @@ is gradually adapted to the real behaviour of the site.
 
 
 
-<!-- =========================================================
-     HYDRAULIC ROUTES
-========================================================= -->
+<!-- HYDRAULICS -->
 
 <section class="section">
 
@@ -967,33 +910,873 @@ is gradually adapted to the real behaviour of the site.
 
 
 <div class="card">
-
 <h3>Tank 1 → Tank 2</h3>
-
-<p>
-Pump 1 + Valve 1
-</p>
-
+<p>Pump 1 + Valve 1</p>
 </div>
 
 
 <div class="card">
-
 <h3>Tank 2 → Tank 3</h3>
-
-<p>
-Pump 2
-</p>
-
+<p>Pump 2</p>
 </div>
 
 
 <div class="card">
-
 <h3>Tank 3 → Tank 4</h3>
+<p>Pump 3</p>
+</div>
+
+
+<div class="card">
+<h3>Tank 4 → Tank 1</h3>
+<p>Pump 4</p>
+</div>
+
+
+</div>
+
+</section>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     TAB 2
+     SENSOR NETWORK
+========================================================= -->
+
+<div
+    id="sensors"
+    class="tab-content"
+>
+
+
+<!-- SENSOR OVERVIEW -->
+
+<section class="section">
+
+<h2>Sensor Infrastructure</h2>
 
 <p>
-Pump 3
+A distributed sensor network continuously monitors
+weather, soil conditions, storage levels, local climate
+and rainwater quality throughout the Blue Green Yard.
+</p>
+
+
+<div class="stats">
+
+<div class="stat">
+<strong>39</strong>
+Sensors
+</div>
+
+<div class="stat">
+<strong>38</strong>
+Active
+</div>
+
+<div class="stat">
+<strong>1</strong>
+Inactive
+</div>
+
+<div class="stat">
+<strong>1</strong>
+Integrated Monitoring System
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- WHAT WE MEASURE -->
+
+<section class="section">
+
+<h2>What We Measure</h2>
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="icon">🌦️</div>
+
+<h3>Weather</h3>
+
+<p>
+Six Ecowitt WS90 weather stations monitor
+local meteorological conditions.
+</p>
+
+<div class="sensor-count">
+<strong>6 active</strong>
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="icon">🌱</div>
+
+<h3>Soil & Vegetation</h3>
+
+<p>
+Truebner SMT100 sensors monitor planting beds,
+lawns, the tree and different soil depths.
+</p>
+
+<div class="sensor-count">
+<strong>10 active</strong>
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="icon">💧</div>
+
+<h3>Tank Levels</h3>
+
+<p>
+Liquid-level sensors continuously monitor
+the four main tanks, CWH reservoir and filtrate reservoir.
+</p>
+
+<div class="sensor-count">
+<strong>6 active</strong>
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="icon">🌡️</div>
+
+<h3>Local Climate</h3>
+
+<p>
+Six THP sensors measure temperature,
+humidity and atmospheric pressure.
+</p>
+
+<div class="sensor-count">
+<strong>6 active</strong>
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="icon">🔬</div>
+
+<h3>Tank Water Quality</h3>
+
+<p>
+Quality sensors monitor the condition
+of water inside the four main storage tanks.
+</p>
+
+<div class="sensor-count">
+<strong>4 active</strong>
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="icon">🧪</div>
+
+<h3>CWH Water Quality</h3>
+
+<p>
+pH, conductivity and turbidity sensors monitor
+the CWH system and filtrate stream.
+</p>
+
+<div class="sensor-count">
+<strong>6 active</strong>
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="icon">🍃</div>
+
+<h3>Leaf Wetness</h3>
+
+<p>
+Leaf wetness and temperature are monitored
+at the tree location.
+</p>
+
+<div class="sensor-count">
+<strong>1 inactive</strong>
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- SENSOR IMAGES -->
+
+<section class="section">
+
+<h2>Sensor Technology</h2>
+
+<div class="images">
+
+
+<div class="image-card">
+
+<img
+    src="images/weatherstation.jpeg"
+    alt="Weather station"
+>
+
+<div>
+
+<h3>Weather Stations</h3>
+
+<p>
+Rainfall and local weather conditions.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="image-card">
+
+<img
+    src="images/smt100.jpeg"
+    alt="Soil sensor"
+>
+
+<div>
+
+<h3>Soil Sensors</h3>
+
+<p>
+Soil conditions at different locations and depths.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="image-card">
+
+<img
+    src="images/levelsensor.jpeg"
+    alt="Liquid level sensor"
+>
+
+<div>
+
+<h3>Level Sensors</h3>
+
+<p>
+Continuous measurement of stored water volume.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="image-card">
+
+<img
+    src="images/waterquality.jpeg"
+    alt="Water quality sensor"
+>
+
+<div>
+
+<h3>Water Quality</h3>
+
+<p>
+Basis for future quality-oriented water management.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- DATA FLOW -->
+
+<section class="section">
+
+<h2>From Sensor to Smart Management</h2>
+
+<div class="flow">
+
+
+<div class="flow-item">
+
+<span>📡</span>
+
+<strong>Measurement</strong>
+
+<p>
+Environmental and water-related parameters.
+</p>
+
+</div>
+
+
+<div class="flow-item">
+
+<span>🔌</span>
+
+<strong>Communication</strong>
+
+<p>
+Sensors are integrated into the digital infrastructure.
+</p>
+
+</div>
+
+
+<div class="flow-item">
+
+<span>🗄️</span>
+
+<strong>Data Storage</strong>
+
+<p>
+Measurements are stored centrally.
+</p>
+
+</div>
+
+
+<div class="flow-item">
+
+<span>📊</span>
+
+<strong>Visualization</strong>
+
+<p>
+Current and historical values are displayed.
+</p>
+
+</div>
+
+
+<div class="flow-item">
+
+<span>🧠</span>
+
+<strong>Automatic Control</strong>
+
+<p>
+Selected measurements support automatic decisions.
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="note">
+
+<strong>Sensor data as the basis for intelligent management:</strong><br>
+
+Weather and tank-level data already support
+quantitative storage management.
+
+Water-quality data provide the basis for the future
+<strong>Rainwater Inventory</strong> combining
+quantity, water age and quality.
+
+</div>
+
+</section>
+
+
+
+<!-- COMPLETE SENSOR LIST -->
+
+<section class="section">
+
+<h2>Complete Sensor List</h2>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Sensor ID</th>
+<th>Sensor Type</th>
+<th>Location</th>
+<th>Address</th>
+<th>Status</th>
+</tr>
+
+</thead>
+
+
+<tbody>
+
+
+<tr>
+<td>1200-S sc V2 - PH SENSOR</td>
+<td>CWH pH Sensor</td>
+<td>Innenhof</td>
+<td>203</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>1200-S sc V2 - PH SENSOR Filtrat</td>
+<td>CWH pH Sensor</td>
+<td>Innenhof</td>
+<td>206</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>34xx sc - ContCond8403</td>
+<td>CWH Conductivity Sensor</td>
+<td>Innenhof</td>
+<td>204</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>34xx sc - ContCond8403 Filtrat</td>
+<td>CWH Conductivity Sensor</td>
+<td>Innenhof</td>
+<td>207</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Baum</td>
+<td>Truebner SMT100</td>
+<td>Innenhof</td>
+<td>9</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Blattsensor Baum</td>
+<td>Seeed Leaf Wetness + Temperature Sensor</td>
+<td>Innenhof</td>
+<td>70</td>
+<td><span class="status status-inactive">Inactive</span></td>
+</tr>
+
+
+<tr>
+<td>Bodensäule 30 cm</td>
+<td>Truebner SMT100</td>
+<td>Innenhof</td>
+<td>10</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Bodensäule 60 cm</td>
+<td>Truebner SMT100</td>
+<td>Innenhof</td>
+<td>11</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Bodensäule 90 cm</td>
+<td>Truebner SMT100</td>
+<td>Innenhof</td>
+<td>12</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Großer Rasen</td>
+<td>Truebner SMT100</td>
+<td>Innenhof</td>
+<td>8</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Kleiner Rasen</td>
+<td>Truebner SMT100</td>
+<td>Innenhof</td>
+<td>7</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Level Filtrat</td>
+<td>Seeed RS485 Liquid Level Sensor</td>
+<td>Innenhof</td>
+<td>32</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Level Vorlage</td>
+<td>Seeed RS485 Liquid Level Sensor</td>
+<td>Innenhof</td>
+<td>31</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Levelsensor 1</td>
+<td>Seeed RS485 Liquid Level Sensor</td>
+<td>Innenhof</td>
+<td>27</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Levelsensor 2</td>
+<td>Seeed RS485 Liquid Level Sensor</td>
+<td>Innenhof</td>
+<td>28</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Levelsensor 3</td>
+<td>Seeed RS485 Liquid Level Sensor</td>
+<td>Innenhof</td>
+<td>29</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Levelsensor 4</td>
+<td>Seeed RS485 Liquid Level Sensor</td>
+<td>Innenhof</td>
+<td>30</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Seeed THP 1</td>
+<td>Seeed S-THP-01A Temperature / Humidity / Pressure</td>
+<td>Innenhof</td>
+<td>138</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Seeed THP 2</td>
+<td>Seeed S-THP-01A Temperature / Humidity / Pressure</td>
+<td>Innenhof</td>
+<td>139</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Seeed THP 3</td>
+<td>Seeed S-THP-01A Temperature / Humidity / Pressure</td>
+<td>Innenhof</td>
+<td>140</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Seeed THP 4</td>
+<td>Seeed S-THP-01A Temperature / Humidity / Pressure</td>
+<td>Innenhof</td>
+<td>141</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Seeed THP 5</td>
+<td>Seeed S-THP-01A Temperature / Humidity / Pressure</td>
+<td>Innenhof</td>
+<td>142</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Seeed THP 6</td>
+<td>Seeed S-THP-01A Temperature / Humidity / Pressure</td>
+<td>Innenhof</td>
+<td>143</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>SMT100 Beet 1</td>
+<td>Truebner SMT100</td>
+<td>Innenhof</td>
+<td>5</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>SMT100 Beet 2</td>
+<td>Truebner SMT100</td>
+<td>Innenhof</td>
+<td>13</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>SMT100 Beet 3</td>
+<td>Truebner SMT100</td>
+<td>Innenhof</td>
+<td>14</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>SMT100 Beet 4</td>
+<td>Truebner SMT100</td>
+<td>Innenhof</td>
+<td>6</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>SOLITAX sc - 2494057</td>
+<td>CWH SOLITAX Turbidity Sensor</td>
+<td>Innenhof</td>
+<td>202</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>SOLITAX sc - Filtrat</td>
+<td>CWH SOLITAX Turbidity Sensor</td>
+<td>Innenhof</td>
+<td>205</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Tankqualität 1</td>
+<td>Tank Quality Sensor</td>
+<td>Innenhof</td>
+<td>60</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Tankqualität 2</td>
+<td>Tank Quality Sensor</td>
+<td>Innenhof</td>
+<td>61</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Tankqualität 3</td>
+<td>Tank Quality Sensor</td>
+<td>Innenhof</td>
+<td>62</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Tankqualität 4</td>
+<td>Tank Quality Sensor</td>
+<td>Innenhof</td>
+<td>63</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Wetterstation 1</td>
+<td>Ecowitt WS90 Modbus RTU</td>
+<td>Innenhof</td>
+<td>144</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Wetterstation 2</td>
+<td>Ecowitt WS90 Modbus RTU</td>
+<td>Innenhof</td>
+<td>145</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Wetterstation 3</td>
+<td>Ecowitt WS90 Modbus RTU</td>
+<td>Innenhof</td>
+<td>146</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Wetterstation 4</td>
+<td>Ecowitt WS90 Modbus RTU</td>
+<td>Innenhof</td>
+<td>147</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Wetterstation 5</td>
+<td>Ecowitt WS90 Modbus RTU</td>
+<td>Innenhof</td>
+<td>148</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+<tr>
+<td>Wetterstation 6</td>
+<td>Ecowitt WS90 Modbus RTU</td>
+<td>Innenhof</td>
+<td>151</td>
+<td><span class="status status-active">Active</span></td>
+</tr>
+
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     TAB 3
+     COOLING SYSTEM
+========================================================= -->
+
+<div
+    id="cooling"
+    class="tab-content"
+>
+
+
+<section class="section">
+
+<h2>Cooling & Thermal Comfort</h2>
+
+<p>
+Next to the City Water Hub, the Blue Green Yard uses
+a waterfall and misting system to investigate
+local cooling effects and thermal comfort.
+</p>
+
+
+<div class="cool-image">
+
+<img
+    src="images/coolingelements.png"
+    alt="Cooling elements in the Blue Green Yard"
+>
+
+</div>
+
+</section>
+
+
+
+<!-- COOLING ELEMENTS -->
+
+<section class="section">
+
+<h2>Cooling Elements</h2>
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="icon">🌊</div>
+
+<h3>Waterfall</h3>
+
+<p>
+• Continuously wetted surface<br>
+• Evaporative cooling<br>
+• City Water Hub
 </p>
 
 </div>
@@ -1001,10 +1784,295 @@ Pump 3
 
 <div class="card">
 
-<h3>Tank 4 → Tank 1</h3>
+<div class="icon">💦</div>
+
+<h3>Misting System</h3>
 
 <p>
-Pump 4
+• Fine water droplets<br>
+• Local evaporation<br>
+• Cooling investigation
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">📡</div>
+
+<h3>Mobile Sensor Stations</h3>
+
+<p>
+• Two mobile stations<br>
+• Flexible positioning<br>
+• Comparison of locations
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🌡️</div>
+
+<h3>Thermal Comfort</h3>
+
+<p>
+• Air temperature<br>
+• Humidity<br>
+• Radiant heat / WBGT
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- HEIGHTS -->
+
+<section class="section">
+
+<h2>Measurements at Different Heights</h2>
+
+<div class="height-grid">
+
+
+<div class="height">
+
+<strong>0.05 m</strong>
+
+Ground Level
+
+<p>
+Conditions directly above the ground surface.
+</p>
+
+</div>
+
+
+<div class="height">
+
+<strong>1.0 m</strong>
+
+Human Level
+
+<p>
+Temperature, humidity and pressure
+within the pedestrian zone.
+</p>
+
+</div>
+
+
+<div class="height">
+
+<strong>2.0 m</strong>
+
+Upper Level
+
+<p>
+Vertical temperature and humidity gradients.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- PARAMETERS -->
+
+<section class="section">
+
+<h2>Measured Parameters</h2>
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="icon">🌡️</div>
+
+<h3>Air Temperature</h3>
+
+<p>
+Local temperature changes around the cooling elements.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">💧</div>
+
+<h3>Relative Humidity</h3>
+
+<p>
+Atmospheric moisture and evaporation effects.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🔵</div>
+
+<h3>Air Pressure</h3>
+
+<p>
+Atmospheric pressure measured by the mobile stations.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">⚫</div>
+
+<h3>Radiant Heat</h3>
+
+<p>
+Black-globe temperature captures radiant heat exposure.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- WBGT -->
+
+<section class="section">
+
+<h2>Assessment of Thermal Stress</h2>
+
+<div class="flow">
+
+
+<div class="flow-item">
+
+<span>🌡️</span>
+
+<strong>Air Temperature</strong>
+
+<p>Local thermal conditions</p>
+
+</div>
+
+
+<div class="flow-item">
+
+<span>💧</span>
+
+<strong>Humidity</strong>
+
+<p>Evaporative conditions</p>
+
+</div>
+
+
+<div class="flow-item">
+
+<span>⚫</span>
+
+<strong>Globe Temperature</strong>
+
+<p>Radiant heat exposure</p>
+
+</div>
+
+
+<div class="flow-item">
+
+<span>🧍</span>
+
+<strong>WBGT</strong>
+
+<p>Thermal stress assessment</p>
+
+</div>
+
+
+</div>
+
+
+<div class="highlight">
+
+<strong>Objective:</strong><br>
+
+Evaluate the cooling effect of the waterfall and misting
+system not only through air-temperature changes,
+but also through human thermal exposure.
+
+</div>
+
+</section>
+
+
+
+<!-- PURPOSE -->
+
+<section class="section">
+
+<h2>Purpose of the Cooling Investigation</h2>
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>Quantify Cooling</h3>
+
+<p>
+Determine the local cooling effect.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Compare Locations</h3>
+
+<p>
+Compare measurements at different positions.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Vertical Effects</h3>
+
+<p>
+Investigate conditions at different measurement heights.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Human Exposure</h3>
+
+<p>
+Evaluate thermal comfort and heat stress.
 </p>
 
 </div>
@@ -1040,32 +2108,45 @@ Pump 4
 
 <script>
 
-function openTechTab(tabId, button){
+const tabButtons =
+    document.querySelectorAll(".tab-button");
 
-    const contents =
-        document.querySelectorAll(".tab-content");
+const tabContents =
+    document.querySelectorAll(".tab-content");
 
-    contents.forEach(content => {
-        content.classList.remove("active");
+
+tabButtons.forEach(function(button){
+
+    button.addEventListener("click",function(){
+
+        const tabId =
+            button.getAttribute("data-tab");
+
+
+        tabButtons.forEach(function(btn){
+            btn.classList.remove("active");
+        });
+
+
+        tabContents.forEach(function(content){
+            content.classList.remove("active");
+        });
+
+
+        button.classList.add("active");
+
+
+        const selectedTab =
+            document.getElementById(tabId);
+
+
+        if(selectedTab){
+            selectedTab.classList.add("active");
+        }
+
     });
 
-
-    const buttons =
-        document.querySelectorAll(".tab-button");
-
-    buttons.forEach(btn => {
-        btn.classList.remove("active");
-    });
-
-
-    document
-        .getElementById(tabId)
-        .classList.add("active");
-
-
-    button.classList.add("active");
-
-}
+});
 
 </script>
 
